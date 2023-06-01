@@ -6,17 +6,21 @@ import ProductOverview1 from '../../components/Home/ProductOverview1';
 import ProductOverview2 from '../../components/Home/ProductOverview2';
 import ProductOverview3 from '../../components/Home/ProductOverview3';
 import StoreDescription from '../../components/StoreDescription';
+import Footer from '../../components/Footer';
 
 const Home = () => {
   return (
     <div className="home">
       <Header />
       <HeroSection />
-      <Categories />
-      <ProductOverview1 />
-      <ProductOverview2 />
-      <ProductOverview3 />
-      <StoreDescription />
+      <main>
+        <Categories />
+        <ProductOverview1 />
+        <ProductOverview2 />
+        <ProductOverview3 />
+        <StoreDescription />
+      </main>
+      <Footer />
     </div>
   );
 };
