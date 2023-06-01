@@ -35,7 +35,10 @@
     "func-names": "off",
     "object-shorthand": "off",
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "max-len": "off",
+    "react/function-component-definition": "off",
+    "arrow-body-style":"off"
   },
   "settings": {
     "import/resolver": {
