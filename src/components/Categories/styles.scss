@@ -57,3 +57,27 @@
         gap: 13px;
     }
 }
+
+// =============================
+// Responsive
+// =============================
+
+@media screen and (min-width: 768px) {
+    .categories {
+        margin-top: 165px;
+
+        &__container {
+            flex-direction: row;
+            gap: 10px;
+            margin-top: 110px;
+        }
+
+        &__section {
+            width: 223px;
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+
+}
