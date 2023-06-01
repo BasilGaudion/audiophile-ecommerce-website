@@ -1,0 +1,15 @@
+import type { Job } from '@bundle-stats/utils';
+type CreateArtifactFn = (jobs: Array<Job>, report: any) => string;
+export declare const createHTMLArtifact: CreateArtifactFn;
+export declare const createJSONArtifact: CreateArtifactFn;
+interface ArtifactsOptions {
+    html?: boolean;
+    json?: boolean;
+}
+interface Artifact {
+    output: string;
+    filename: string;
+}
+type ArtifactByType = Record<string, Artifact>;
+export declare function createArtifacts(jobs: Array<any>, report: any, options: ArtifactsOptions): ArtifactByType;
+export {};
