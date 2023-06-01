@@ -1,9 +1,12 @@
 import './styles.scss';
+import Header from '../../components/Header';
+import HeroSection from '../../components/Home/HeroSection';
 
 const Home = () => {
   return (
     <div className="home">
-      <p>Tests</p>
+      <Header />
+      <HeroSection />
     </div>
   );
 };
