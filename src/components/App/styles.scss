@@ -3,3 +3,25 @@
 margin: 0;
 font-family: 'Manrope';
 }
+
+// =============================
+// Responsive
+// =============================
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 327px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 689px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .container {
+        width: 1200px;
+    }
+}
