@@ -8,6 +8,7 @@
 
     &__container  {
         width: 327px;
+        height: 100%;
         display: flex;
         justify-content: space-between;
     } 
@@ -73,5 +74,27 @@
                 }
             }
         }
+    }
+}
+
+// =============================
+// Responsive
+// =============================
+
+@media screen and (min-width: 768px) {
+    .header {
+        border: none;
+        padding-bottom: 0;
+
+        &__container {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 32px;
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .container {
+        width: 1110px;
     }
 }
