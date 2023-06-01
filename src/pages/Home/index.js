@@ -3,6 +3,7 @@ import Header from '../../components/Header';
 import HeroSection from '../../components/Home/HeroSection';
 import Categories from '../../components/Categories';
 import ProductOverview1 from '../../components/Home/ProductOverview1';
+import ProductOverview2 from '../../components/Home/ProductOverview2';
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <HeroSection />
       <Categories />
       <ProductOverview1 />
+      <ProductOverview2 />
     </div>
   );
 };

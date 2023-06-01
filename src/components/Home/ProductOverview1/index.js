@@ -10,7 +10,7 @@ const ProductOverview1 = () => {
         <img className="productoverview1__image" src={speaker} alt="speaker" />
         <h2 className="productoverview1__title">Zx9 Speaker</h2>
         <p className="productoverview1__text">Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-        <button className="productoverview1__button" type="button"> See product</button>
+        <button className="productoverview1__button" type="button">See product</button>
       </div>
     </section>
   );

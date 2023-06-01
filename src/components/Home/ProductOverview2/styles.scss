@@ -1,0 +1,49 @@
+.productoverview2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+
+    &__container {
+        height: 320px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    &__image {
+        overflow: hidden;
+        border-radius: 8px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+
+    &__title, &__button {
+        margin-left: 24px;
+    }
+
+    &__title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    &__button {
+        width: 160px;
+        font-family: 'Manrope';
+        font-weight: 700;
+        height: 48px;
+        background-color: rgba(0,0,0,0);
+        color: #000;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border: 1px solid black;
+        font-size: 0.85rem;
+        font-weight: 700;
+    }
+}
