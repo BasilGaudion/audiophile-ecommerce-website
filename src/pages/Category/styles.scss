@@ -18,3 +18,19 @@
         letter-spacing: 2px;
     }
 }
+
+// =============================
+// Responsive
+// =============================
+
+@media screen and (min-width: 1440px) {
+    .category {
+        .productListItem {
+            &:nth-child(2n) {
+                .productListItem__container {
+                    flex-direction: row-reverse;
+                }
+            }
+        }
+    }
+}

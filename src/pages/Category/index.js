@@ -13,6 +13,7 @@ const Category = () => {
         <h2 className="category__name">Headphones</h2>
       </div>
       <ProductListItem />
+      <ProductListItem />
       <Categories />
       <StoreDescription />
       <Footer />
