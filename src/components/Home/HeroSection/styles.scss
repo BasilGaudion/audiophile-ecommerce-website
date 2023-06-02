@@ -96,5 +96,28 @@
 }
 
 @media screen and (min-width: 1440px) {
+    .hero {
+        justify-content: flex-start;
+        padding-left: 165px;
+       
+        &__container {
+            max-width: 398px;
+            align-items: flex-start;
+            gap: 24px;
+            margin-top: 40px;
+        }
 
+        &__image {
+            top: -90px;
+            height: 730px;
+        }
+
+        &__title, &__text {
+            text-align: left;
+        }
+
+        &__text {
+            letter-spacing: 0.14px;
+        }
+    }
 }

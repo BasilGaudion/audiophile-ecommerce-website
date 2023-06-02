@@ -13,6 +13,14 @@ const Header = () => {
           </label>
         </div>
         <img className="header__logo" src={logo} alt="" />
+        <div className="header__categories">
+          <ul>
+          <li>Home</li>
+            <li>Headphones</li>
+            <li>Speakers</li>
+            <li>Earphones</li>
+          </ul>
+        </div>
         <img className="header__icon" src={basket} alt="" />
       </div>
     </header>

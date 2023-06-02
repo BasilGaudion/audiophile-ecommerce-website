@@ -13,6 +13,10 @@
         justify-content: space-between;
     } 
 
+    &__categories {
+        display: none;
+    }
+
     &__icon {
         width: 23px;
 
@@ -98,5 +102,37 @@
 }
 
 @media screen and (min-width: 1440px) {
-    
+    .header {
+
+        &__container {
+            justify-content: space-between;
+        }
+
+        &__logo {
+            margin:0;
+        }
+
+        &__icon:nth-child(1) {
+            display: none;
+        }
+
+        &__categories {
+            margin-left: -115px;
+            display: block;
+
+            ul {
+                display: flex;
+                gap: 34px;
+
+                li {
+                    font-weight: 700;
+                    font-size: .8125rem;
+                    line-height: 25px;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                    color: #FFF;
+                }
+            }
+        }
+    }
 }

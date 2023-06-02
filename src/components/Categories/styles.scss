@@ -79,5 +79,42 @@
 }
 
 @media screen and (min-width: 1440px) {
+    .categories {
+        margin-top: 165px;
 
+        &__section {
+            padding-bottom: 30px;
+            gap: 22px;
+            
+            &:nth-child(1) {
+                .categories__image {
+                    transform: scale(1.54);
+                }
+            }
+
+            &:nth-child(2) {
+                .categories__image {
+                    transform: scale(1.44);
+                }
+            }
+
+            &:nth-child(3) {
+                .categories__image {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        &__title {
+            font-size: 1.125rem;
+        }
+        
+        &__container {
+            gap: 30px;
+        }
+        &__section {
+            min-width: 350px;
+            min-height: 204px;
+        }
+    }
 }

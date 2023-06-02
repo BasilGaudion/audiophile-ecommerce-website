@@ -17,6 +17,13 @@
         color: #FFF;
     }
 
+    &__aside {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
     &__background {
         position: absolute;
         top: 0;
@@ -78,35 +85,72 @@
 // =============================
 
 @media screen and (min-width: 768px) {
- .productoverview1 {
+    .productoverview1 {
 
-    &__container {
-        height: 720px;
-        padding: 52px 0 64px 0;
-    }
+        &__container {
+            height: 720px;
+            padding: 52px 0 64px 0;
+        }
 
-    &__text {
-        width: 349px;
-        margin-bottom: 16px;
-    }
+        &__text {
+            width: 349px;
+            margin-bottom: 16px;
+        }
 
-    &__title {
-        font-size: 3.5rem;
-        line-height: 58px;
-        width: 261px;
-        margin-top: 30px;
-    }
+        &__title {
+            font-size: 3.5rem;
+            line-height: 58px;
+            width: 261px;
+            margin-top: 30px;
+        }
 
-    &__image {
-        width: 198px;
-    }
+        &__image {
+            width: 198px;
+        }
 
-    &__button {
-        z-index: 5;
+        &__button {
+            z-index: 5;
+        }
     }
- }
 }
 
 @media screen and (min-width: 1440px) {
-    
+    .productoverview1 {
+        margin-top: 169px;
+
+        &__container {
+            height: 560px;
+            flex-direction: row;
+            justify-content: flex-end;
+            overflow: hidden;
+            gap: 145px;
+        }
+
+        &__aside {
+            position: relative;
+            align-items: flex-start;
+            width: 349px;
+            margin-right: 95px;
+            gap: 24px;
+        }
+
+        &__title {
+            text-align: left;
+        }
+
+        &__text {
+            text-align: left;
+        }
+
+        &__image {
+            width: 400px;
+            position: absolute;
+            bottom: -15px;
+            left: 115px;
+        }
+
+        &__button {
+            transform: translateY(16px);
+        }
+    }
 }
