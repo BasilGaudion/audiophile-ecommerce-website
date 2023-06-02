@@ -10,7 +10,7 @@ const ProductOverview2 = () => {
         <picture>
           <source srcSet={speakerTableMobile} media="(max-width: 767px)" />
           <source srcSet={speakerTableTablet} media="(min-width: 768px) and (max-width: 1440px)" />
-          {/* <source srcSet={circleDesktop} media="(min-width: 1024px)" /> */}
+          <source srcSet={speakerTableDesktop} media="(min-width: 1024px)" />
           <img className="productoverview2__image" src={speakerTableMobile} alt="speaker" />
         </picture>
         <h2 className="productoverview2__title">Zx7 Speaker</h2>

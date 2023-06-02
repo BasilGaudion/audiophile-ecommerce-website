@@ -8,8 +8,8 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__container container">
-        <img src={logo} alt="logo" />
         <section className="footer__categories">
+          <img src={logo} alt="logo" />
           <ul className="footer__items">
             <li className="footer__item">Home</li>
             <li className="footer__item">Headphones</li>

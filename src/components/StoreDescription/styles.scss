@@ -57,5 +57,26 @@
 }
    
 @media screen and (min-width: 1440px) {
-       
+    .storeDescription {
+        justify-content: center;
+        flex-direction: row-reverse;
+        gap: 125px;
+        margin-top: 200px;
+        &__container:nth-child(1) {
+            width: 540px;
+        }
+
+        &__container:nth-child(2) {
+            margin-top: -4px;
+            width: 445px;
+        }
+
+        &__title, &__text {
+            text-align: left;
+        }
+
+        &__title {
+            line-height: 43px;
+        }
+    }
 }

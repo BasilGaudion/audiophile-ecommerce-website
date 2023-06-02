@@ -112,5 +112,30 @@
 }
 
 @media screen and (min-width: 1440px) {
+    .footer {
+        height: 365px;
+        margin-top: 200px;
+        padding: 75px 165px 48px 165px;
 
+        &__categories {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        &__text {
+            width: 540px;
+        }
+
+        &__copyright {
+            transform: translateY(-21px);
+        }
+
+        &__social {
+            position: absolute;
+            right: 0;
+            top: 53%;
+        }
+    }
 }

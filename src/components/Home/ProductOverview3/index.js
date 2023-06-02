@@ -10,7 +10,7 @@ const ProductOverview3 = () => {
         <picture>
           <source srcSet={earphonesProductMobile} media="(max-width: 767px)" />
           <source srcSet={earphonesProductTablet} media="(min-width: 768px) and (max-width: 1440px)" />
-          {/* <source srcSet={earphonesProductdesktop} media="(min-width: 1024px)" /> */}
+          <source srcSet={earphonesProductDesktop} media="(min-width: 1024px)" />
           <img className="productoverview3__image" src={earphonesProductMobile} alt="speaker" />
         </picture>
       </div>

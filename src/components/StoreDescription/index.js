@@ -10,7 +10,7 @@ const StoreDescription = () => {
         <picture>
           <source srcSet={headphonesManMobile} media="(max-width: 767px)" />
           <source srcSet={headphonesManTablet} media="(min-width: 768px) and (max-width: 1440px)" />
-          {/* <source srcSet={headphonesManDesktop} media="(min-width: 1024px)" /> */}
+          <source srcSet={headphonesManDesktop} media="(min-width: 1024px)" />
           <img className="storeDescription__image" src={headphonesManMobile} alt="man listening music" />
         </picture>
       </div>
