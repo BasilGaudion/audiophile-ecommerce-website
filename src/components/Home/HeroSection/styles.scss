@@ -12,6 +12,7 @@
         flex-direction: column;
         align-items: center;
         gap: 25px;
+        left: unset;
     }
 
     &__image {
@@ -98,13 +99,14 @@
 @media screen and (min-width: 1440px) {
     .hero {
         justify-content: flex-start;
-        padding-left: 165px;
        
         &__container {
             max-width: 398px;
             align-items: flex-start;
             gap: 24px;
             margin-top: 40px;
+            position: relative;
+            left: calc(50% + -550px);
         }
 
         &__image {
