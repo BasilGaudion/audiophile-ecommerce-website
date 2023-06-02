@@ -29,6 +29,7 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 2px;
+        line-height: 38.25px;
     }
 
     &__button {
@@ -44,4 +45,34 @@
         font-size: 0.85rem;
         font-weight: 700;
     }
+}
+
+// =============================
+// Responsive
+// =============================
+
+@media screen and (min-width: 768px) {
+    .productoverview3 {
+        flex-direction: row;
+        justify-content: center;
+        gap: 11px;
+
+        &__container, &__image {
+            max-width: 339px;
+            height: 320px;
+        }
+
+        &__container:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 32px;
+            padding-left: 41px;
+        }
+    }
+}
+   
+@media screen and (min-width: 1440px) {
+       
 }

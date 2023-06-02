@@ -20,6 +20,7 @@
     &__background {
         position: absolute;
         top: 0;
+        left: 0;
         user-drag: none;
         -webkit-user-drag: none;
         user-select: none;
@@ -29,7 +30,7 @@
     }
 
     &__image {
-        width: 165px;
+        width: 172.25px;
     }
 
     &__detailsGroup {
@@ -60,7 +61,7 @@
         width: 160px;
         font-family: 'Manrope';
         font-weight: 700;
-        height: 48px;
+        min-height: 48px;
         background-color: #000;
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -81,6 +82,27 @@
 
     &__container {
         height: 720px;
+        padding: 52px 0 64px 0;
+    }
+
+    &__text {
+        width: 349px;
+        margin-bottom: 16px;
+    }
+
+    &__title {
+        font-size: 3.5rem;
+        line-height: 58px;
+        width: 261px;
+        margin-top: 30px;
+    }
+
+    &__image {
+        width: 198px;
+    }
+
+    &__button {
+        z-index: 5;
     }
  }
 }

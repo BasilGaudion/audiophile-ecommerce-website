@@ -47,3 +47,28 @@
         font-weight: 700;
     }
 }
+
+// =============================
+// Responsive
+// =============================
+
+@media screen and (min-width: 768px) {
+    .productoverview2 {
+        margin-top: 145px;
+
+        &__image {
+            width: 689px;
+            height: 320px;
+        }
+
+        &__title, &__button {
+            margin-left: 62px;
+        }
+
+
+    }
+}
+   
+@media screen and (min-width: 1440px) {
+       
+}

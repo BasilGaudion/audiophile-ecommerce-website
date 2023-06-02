@@ -34,5 +34,28 @@
         font-size: .9375rem;
         line-height: 25px;
         opacity: .5;
+        font-weight: 500;
     }
+}
+
+// =============================
+// Responsive
+// =============================
+
+@media screen and (min-width: 768px) {
+    .storeDescription {
+        margin-top: 96px;
+
+        &__title {
+            font-size: 2.5rem;
+        }
+
+        &__container:nth-child(2) {
+            width: 573px;
+        }
+    }
+}
+   
+@media screen and (min-width: 1440px) {
+       
 }
