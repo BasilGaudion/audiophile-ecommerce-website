@@ -1,0 +1,19 @@
+{
+    "categories": [
+        {
+            "id": "1",
+            "name": "Headphones",
+            "type": "headphones"
+        },
+        {
+            "id": "2",
+            "name": "Speakers",
+            "type": "speakers"
+        },
+        {
+            "id": "3",
+            "name": "Earphones",
+            "type": "earphones"
+        }
+    ]
+}
