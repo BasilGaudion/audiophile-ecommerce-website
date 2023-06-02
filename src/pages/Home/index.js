@@ -1,10 +1,10 @@
 import './styles.scss';
 import Header from '../../components/Header';
-import HeroSection from '../../components/Home/HeroSection';
+import HeroSection from '../../components/HomePage/HeroSection';
 import Categories from '../../components/Categories';
-import ProductOverview1 from '../../components/Home/ProductOverview1';
-import ProductOverview2 from '../../components/Home/ProductOverview2';
-import ProductOverview3 from '../../components/Home/ProductOverview3';
+import ProductOverview1 from '../../components/HomePage/ProductOverview1';
+import ProductOverview2 from '../../components/HomePage/ProductOverview2';
+import ProductOverview3 from '../../components/HomePage/ProductOverview3';
 import StoreDescription from '../../components/StoreDescription';
 import Footer from '../../components/Footer';
 
