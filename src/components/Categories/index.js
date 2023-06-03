@@ -18,6 +18,7 @@ const Categories = () => {
 
   const handleClick = (category) => {
     setCurrentCategory(category);
+    window.scrollTo(0, 0);
   };
 
   return (

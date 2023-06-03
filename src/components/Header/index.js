@@ -1,4 +1,5 @@
 import './styles.scss';
+import { Link } from 'react-router-dom';
 import basket from '../../assets/icons/basket.svg';
 import logo from '../../assets/icons/audiophile-logo.svg';
 
@@ -12,10 +13,12 @@ const Header = () => {
             <span> </span>
           </label>
         </div>
-        <img className="header__logo" src={logo} alt="" />
+        <Link to="/">
+          <img className="header__logo" src={logo} alt="" />
+        </Link>
         <div className="header__categories">
           <ul>
-          <li>Home</li>
+            <li>Home</li>
             <li>Headphones</li>
             <li>Speakers</li>
             <li>Earphones</li>

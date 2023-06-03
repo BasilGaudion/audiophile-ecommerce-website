@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { CategoriesContext } from '../../utils/providers/useCategoriesProvider';
 import { ProductsContext } from '../../utils/providers/useProductsProvider';
 import Header from '../../components/Header';
@@ -10,9 +10,23 @@ import './styles.scss';
 import ProductListItem from '../../components/CategoryPage/ProductListItem';
 
 const Category = () => {
-  const { currentCategory } = useContext(CategoriesContext);
+  const { currentCategory, setCurrentCategory, allCategories } = useContext(CategoriesContext);
   const { getProductsByCategory, productsByCategory } = useContext(ProductsContext);
+
   const [isLoading, setIsLoading] = useState(true);
+
+  const { category } = useParams();
+  const navigate = useNavigate();
+  const isValidCategory = allCategories.find((item) => item.type === category);
+
+  useEffect(() => {
+    if (!isValidCategory) {
+      navigate('/404');
+    }
+    else {
+      setCurrentCategory(category);
+    }
+  }, [category]);
 
   useEffect(() => {
     getProductsByCategory(currentCategory);
@@ -32,10 +46,15 @@ const Category = () => {
     <div className="category">
       <Header />
       <div className="category__title">
-        <h2 className="category__name">Headphones</h2>
+        <h2 className="category__name">{currentCategory}</h2>
       </div>
-      <ProductListItem />
-      <ProductListItem />
+      {
+        productsByCategory.map((product) => {
+          return (
+            <ProductListItem info={product} key={product.id} />
+          );
+        })
+      }
       <Categories />
       <StoreDescription />
       <Footer />
