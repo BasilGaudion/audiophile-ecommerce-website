@@ -1,3 +1,6 @@
+import { useContext, useEffect } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { CategoriesContext } from '../../utils/providers/useCategoriesProvider';
 import Header from '../../components/Header';
 import Categories from '../../components/Categories';
 import StoreDescription from '../../components/StoreDescription';
@@ -6,6 +9,12 @@ import './styles.scss';
 import ProductListItem from '../../components/CategoryPage/ProductListItem';
 
 const Category = () => {
+  const { currentCategory } = useContext(CategoriesContext);
+
+  useEffect(() => {
+
+  }, [currentCategory]);
+
   return (
     <div className="category">
       <Header />

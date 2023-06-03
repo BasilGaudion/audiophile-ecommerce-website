@@ -3,17 +3,20 @@
         {
             "id": "1",
             "name": "Headphones",
-            "type": "headphones"
+            "type": "headphones",
+            "image": "../../../assets/images/categories/mobile/category-headphones.png"
         },
         {
             "id": "2",
             "name": "Speakers",
-            "type": "speakers"
+            "type": "speakers",
+            "image": "../../../assets/images/categories/mobile/category-speaker.png"
         },
         {
             "id": "3",
             "name": "Earphones",
-            "type": "earphones"
+            "type": "earphones",
+            "image": "../../../assets/images/categories/mobile/category-earphones.png"
         }
     ]
 }
