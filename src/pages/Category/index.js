@@ -48,13 +48,15 @@ const Category = () => {
       <div className="category__title">
         <h2 className="category__name">{currentCategory}</h2>
       </div>
-      {
-        productsByCategory.map((product) => {
-          return (
-            <ProductListItem info={product} key={product.id} />
-          );
-        })
-      }
+      <div className="category__container">
+        {
+          productsByCategory.map((product) => {
+            return (
+              <ProductListItem info={product} key={product.id} />
+            );
+          })
+        }
+      </div>
       <Categories />
       <StoreDescription />
       <Footer />

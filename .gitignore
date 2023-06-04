@@ -16,3 +16,5 @@
 .prettierignore
 /starter-code
 /audiophile-ecommerce-website-figma
+**/node_modules
+.env

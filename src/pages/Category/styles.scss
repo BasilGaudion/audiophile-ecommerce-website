@@ -17,6 +17,11 @@
         text-align: center;
         letter-spacing: 2px;
     }
+
+    &__container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 }
 
 // =============================

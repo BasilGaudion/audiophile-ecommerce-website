@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './styles.scss';
 
 const ProductListItem = ({ info }) => {
@@ -25,6 +26,19 @@ const ProductListItem = ({ info }) => {
       </div>
     </section>
   );
+};
+
+ProductListItem.propTypes = {
+  info: PropTypes.shape({
+    categoryImage: PropTypes.shape({
+      mobile: PropTypes.string.isRequired,
+      tablet: PropTypes.string.isRequired,
+      desktop: PropTypes.string.isRequired,
+    }).isRequired,
+    new: PropTypes.bool,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default ProductListItem;
