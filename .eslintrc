@@ -32,13 +32,15 @@
     "react/no-unescaped-entities": "off",
     "react/jsx-props-no-spreading": "off",
     "react/state-in-constructor": "off",
+    "react/no-array-index-key": "off",
     "func-names": "off",
     "object-shorthand": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "max-len": "off",
     "react/function-component-definition": "off",
-    "arrow-body-style":"off"
+    "arrow-body-style":"off",
+    "padded-blocks":"off"
   },
   "settings": {
     "import/resolver": {

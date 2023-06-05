@@ -1,30 +1,30 @@
 import './styles.scss';
-import { useState } from 'react';
-import headphonesMobile from '../../../assets/images/product-xx99-mark-two-headphones/mobile/image-product.jpg';
-import headphonesTablet from '../../../assets/images/product-xx99-mark-two-headphones/tablet/image-product.jpg';
-import headphonesDesktop from '../../../assets/images/product-xx99-mark-two-headphones/desktop/image-product.jpg';
-import gallery1Mobile from '../../../assets/images/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg';
-import gallery2Mobile from '../../../assets/images/product-xx99-mark-two-headphones/mobile/image-gallery-2.jpg';
-import gallery3Mobile from '../../../assets/images/product-xx99-mark-two-headphones/mobile/image-gallery-3.jpg';
-import gallery1Tablet from '../../../assets/images/product-xx99-mark-two-headphones/tablet/image-gallery-1.jpg';
-import gallery2Tablet from '../../../assets/images/product-xx99-mark-two-headphones/tablet/image-gallery-2.jpg';
-import gallery3Tablet from '../../../assets/images/product-xx99-mark-two-headphones/tablet/image-gallery-3.jpg';
-import gallery1Desktop from '../../../assets/images/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg';
-import gallery2Desktop from '../../../assets/images/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg';
-import gallery3Desktop from '../../../assets/images/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg';
-import sharedHeadphonesMobile from '../../../assets/images/shared/mobile/image-xx99-mark-one-headphones.jpg';
-import sharedHeadphonesTablet from '../../../assets/images/shared/tablet/image-xx99-mark-one-headphones.jpg';
-import sharedHeadphonesDesktop from '../../../assets/images/shared/desktop/image-xx99-mark-one-headphones.jpg';
+import { useState, useContext, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { ProductsContext } from '../../../utils/providers/useProductsProvider';
 
 const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
+  const {
+    currentProductData, setCurrentProductData, setCurrentProduct, getCurrentProduct,
+  } = useContext(ProductsContext);
+  const [isLoading, setIsLoading] = useState(true);
+  const [lines, setLines] = useState([]);
+  const { product } = useParams();
+  const navigate = useNavigate();
 
-  const jsonData = {
-    features: 'As the headphones all others are measured against, the XX99 Mark I demonstrates over five decades of audio expertise, redefining the critical listening experience. This pair of closed-back headphones are made of industrial, aerospace-grade materials to emphasize durability at a relatively light weight of 11 oz.\n\nFrom the handcrafted microfiber ear cushions to the robust metal headband with inner damping element, the components work together to deliver comfort and uncompromising sound. Its closed-back design delivers up to 27 dB of passive noise cancellation, reducing resonance by reflecting sound to a dedicated absorber. For connectivity, a specially tuned cable is includes with a balanced gold connector.',
-  };
+  useEffect(() => {
+    setCurrentProduct(product);
+    const productData = getCurrentProduct(product);
+    setCurrentProductData(productData);
+  }, [product]);
 
-  const text = jsonData.features;
-  const lines = text.split('\n');
+  useEffect(() => {
+    if (currentProductData && currentProductData.features) {
+      setIsLoading(false);
+      setLines(currentProductData.features.split('\n'));
+    }
+  }, [currentProductData]);
 
   const decreaseQuantity = () => {
     if (quantity > 1) {
@@ -38,26 +38,53 @@ const ProductDetail = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Adding ${quantity} product(s) to the cart.`);
-    // ....................
   };
+
+  const handleClick = (slug) => {
+    const newProduct = getCurrentProduct(slug);
+    navigate(`/${newProduct.category}/${newProduct.slug}`);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  if (isLoading) {
+    return (
+      <div>Loading</div>
+    );
+  }
 
   return (
     <main className="product">
       <div className="product__container container">
-        <button className="product__back" type="button">Go Back</button>
+        <button
+          className="product__back"
+          type="button"
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: 'smooth',
+            });
+            navigate(-1);
+          }}
+        >
+          Go Back
+        </button>
         <div className="product__primary">
           <picture>
-            <source srcSet={headphonesMobile} media="(max-width: 767px)" />
-            <source srcSet={headphonesTablet} media="(min-width: 768px) and (max-width: 1440px)" />
-            <source srcSet={headphonesDesktop} media="(min-width: 1024px)" />
-            <img className="product__image" src={headphonesMobile} alt="product headphones" />
+            <source srcSet={currentProductData.image.mobile} media="(max-width: 767px)" />
+            <source srcSet={currentProductData.image.tablet} media="(min-width: 768px) and (max-width: 1440px)" />
+            <source srcSet={currentProductData.image.desktop} media="(min-width: 1024px)" />
+            <img className="product__image" src={currentProductData.image.mobile} alt="product headphones" />
           </picture>
           <section className="product__content">
-            <h3 className="product__subtitle">New product</h3>
-            <h1 className="product__title">XX99 Mark II Headphones </h1>
-            <p className="product__text">The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.</p>
-            <div className="product__price">$ 2,999 </div>
+            {currentProductData.new && <h3 className="productListItem__subtitle">New product</h3>}
+            <h1 className="product__title">{currentProductData.name}</h1>
+            <p className="product__text">{currentProductData.description}</p>
+            <div className="product__price">$ {currentProductData.price}</div>
             <div className="product__basketDetails">
               <form onSubmit={handleSubmit}>
                 <button onClick={decreaseQuantity} className="product__button--setvalue" type="button">-</button>
@@ -76,8 +103,8 @@ const ProductDetail = () => {
         <section className="product__featuresBox">
           <section className="product__features">
             <h2 className="product__secondaryTitle">Features</h2>
-            {lines.map((line) => (
-              <p className="product__text">
+            {lines.map((line, index) => (
+              <p className="product__text" key={index}>
                 {line}
               </p>
             ))}
@@ -85,11 +112,9 @@ const ProductDetail = () => {
           <section className="product__box">
             <h2 className="product__secondaryTitle">In the box</h2>
             <ul className="product__list">
-              <li><span>1x</span>Headphone Unit</li>
-              <li><span>2x</span>Replacement Earcup</li>
-              <li><span>1x</span>User Manual</li>
-              <li><span>1x</span>Audio cable</li>
-              <li><span>1x</span>Travel Bag</li>
+              {currentProductData.includes.map((object, index) => (
+                <li key={index}><span>{object.quantity}x</span>{object.item}</li>
+              ))}
             </ul>
           </section>
         </section>
@@ -97,74 +122,59 @@ const ProductDetail = () => {
           <div className="product__imageGroup">
             <div className="product__galleryImage">
               <picture>
-                <source srcSet={gallery1Mobile} media="(max-width: 767px)" />
-                <source srcSet={gallery1Tablet} media="(min-width: 768px) and (max-width: 1440px)" />
-                <source srcSet={gallery1Desktop} media="(min-width: 1024px)" />
-                <img className="product__image" src={gallery1Mobile} alt="product headphones" />
+                <source srcSet={currentProductData.gallery.first.mobile} media="(max-width: 767px)" />
+                <source srcSet={currentProductData.gallery.first.tablet} media="(min-width: 768px) and (max-width: 1440px)" />
+                <source srcSet={currentProductData.gallery.first.desktop} media="(min-width: 1024px)" />
+                <img className="product__image" src={currentProductData.gallery.first.mobile} alt="product headphones" />
               </picture>
             </div>
             <div className="product__galleryImage">
               <picture>
-                <source srcSet={gallery2Mobile} media="(max-width: 767px)" />
-                <source srcSet={gallery2Tablet} media="(min-width: 768px) and (max-width: 1440px)" />
-                <source srcSet={gallery2Desktop} media="(min-width: 1024px)" />
-                <img className="product__image" src={gallery2Mobile} alt="product headphones" />
+                <source srcSet={currentProductData.gallery.second.mobile} media="(max-width: 767px)" />
+                <source srcSet={currentProductData.gallery.second.tablet} media="(min-width: 768px) and (max-width: 1440px)" />
+                <source srcSet={currentProductData.gallery.second.desktop} media="(min-width: 1024px)" />
+                <img className="product__image" src={currentProductData.gallery.second.mobile} alt="product headphones" />
               </picture>
             </div>
           </div>
           <div className="product__galleryImage--big">
             <picture>
-              <source srcSet={gallery3Mobile} media="(max-width: 767px)" />
-              <source srcSet={gallery3Tablet} media="(min-width: 768px) and (max-width: 1440px)" />
-              <source srcSet={gallery3Desktop} media="(min-width: 1024px)" />
-              <img className="product__image" src={gallery3Mobile} alt="product headphones" />
+              <source srcSet={currentProductData.gallery.third.mobile} media="(max-width: 767px)" />
+              <source srcSet={currentProductData.gallery.third.tablet} media="(min-width: 768px) and (max-width: 1440px)" />
+              <source srcSet={currentProductData.gallery.third.desktop} media="(min-width: 1024px)" />
+              <img className="product__image" src={currentProductData.gallery.third.mobile} alt="product headphones" />
             </picture>
           </div>
         </section>
         <section className="product__others">
           <h2 className="product__secondaryTitle">You may also like</h2>
           <div className="product__othersProducts">
-            <div className="product__othersProduct">
-              <div className="product__othersImage">
-                <picture>
-                  <source srcSet={sharedHeadphonesMobile} media="(max-width: 767px)" />
-                  <source srcSet={sharedHeadphonesTablet} media="(min-width: 768px) and (max-width: 1440px)" />
-                  <source srcSet={sharedHeadphonesDesktop} media="(min-width: 1024px)" />
-                  <img className="product__image" src={sharedHeadphonesMobile} alt="product headphones" />
-                </picture>
+            {currentProductData.others.map((object) => (
+              <div className="product__othersProduct" key={object.slug}>
+                <div className="product__othersImage">
+                  <picture>
+                    <source srcSet={object.image.mobile} media="(max-width: 767px)" />
+                    <source srcSet={object.image.tablet} media="(min-width: 768px) and (max-width: 1440px)" />
+                    <source srcSet={object.image.desktop} media="(min-width: 1024px)" />
+                    <img className="product__image" src={object.image.mobile} alt="product headphones" />
+                  </picture>
+                </div>
+                <h2 className="product__secondaryTitle">{object.name}</h2>
+                <button
+                  className="productListItem__button"
+                  type="button"
+                  onClick={() => handleClick(object.slug)}
+                >
+                  See product
+                </button>
               </div>
-              <h2 className="product__secondaryTitle">XX99 Mark i</h2>
-              <button type="submit" className="product__button">See product</button>
-            </div>
-            <div className="product__othersProduct">
-              <div className="product__othersImage">
-                <picture>
-                  <source srcSet={sharedHeadphonesMobile} media="(max-width: 767px)" />
-                  <source srcSet={sharedHeadphonesTablet} media="(min-width: 768px) and (max-width: 1440px)" />
-                  <source srcSet={sharedHeadphonesDesktop} media="(min-width: 1024px)" />
-                  <img className="product__image" src={sharedHeadphonesMobile} alt="product headphones" />
-                </picture>
-              </div>
-              <h2 className="product__secondaryTitle">XX99 Mark i</h2>
-              <button type="submit" className="product__button">See product</button>
-            </div>
-            <div className="product__othersProduct">
-              <div className="product__othersImage">
-                <picture>
-                  <source srcSet={sharedHeadphonesMobile} media="(max-width: 767px)" />
-                  <source srcSet={sharedHeadphonesTablet} media="(min-width: 768px) and (max-width: 1440px)" />
-                  <source srcSet={sharedHeadphonesDesktop} media="(min-width: 1024px)" />
-                  <img className="product__image" src={sharedHeadphonesMobile} alt="product headphones" />
-                </picture>
-              </div>
-              <h2 className="product__secondaryTitle">XX99 Mark i</h2>
-              <button type="submit" className="product__button">See product</button>
-            </div>
+            ))}
           </div>
         </section>
       </div>
     </main>
   );
+
 };
 
 export default ProductDetail;

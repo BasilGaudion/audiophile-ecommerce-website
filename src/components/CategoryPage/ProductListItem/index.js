@@ -1,7 +1,17 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './styles.scss';
 
 const ProductListItem = ({ info }) => {
+
+  const handleClick = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <section className="productListItem">
       <div className="productListItem__container container">
@@ -16,12 +26,18 @@ const ProductListItem = ({ info }) => {
           {info.new && <h3 className="productListItem__subtitle">New product</h3>}
           <h2 className="productListItem__title">{info.name}</h2>
           <p className="productListItem__text">{info.description}</p>
-          <button
-            className="productListItem__button"
-            type="button"
+          <Link
+            key={info.id}
+            to={`/${info.category}/${info.slug}`}
           >
-            See product
-          </button>
+            <button
+              className="productListItem__button"
+              type="button"
+              onClick={() => handleClick()}
+            >
+              See product
+            </button>
+          </Link>
         </div>
       </div>
     </section>
@@ -30,6 +46,9 @@ const ProductListItem = ({ info }) => {
 
 ProductListItem.propTypes = {
   info: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
     categoryImage: PropTypes.shape({
       mobile: PropTypes.string.isRequired,
       tablet: PropTypes.string.isRequired,
