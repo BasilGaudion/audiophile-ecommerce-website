@@ -73,23 +73,25 @@ const ProductDetail = () => {
             </div>
           </section>
         </div>
-        <section className="product__features">
-          <h2 className="product__secondaryTitle">Features</h2>
-          {lines.map((line) => (
-            <p className="product__text">
-              {line}
-            </p>
-          ))}
-        </section>
-        <section className="product__box">
-          <h2 className="product__secondaryTitle">In the box</h2>
-          <ul className="product__list">
-            <li><span>1x</span>Headphone Unit</li>
-            <li><span>2x</span>Replacement Earcup</li>
-            <li><span>1x</span>User Manual</li>
-            <li><span>1x</span>Audio cable</li>
-            <li><span>1x</span>Travel Bag</li>
-          </ul>
+        <section className="product__featuresBox">
+          <section className="product__features">
+            <h2 className="product__secondaryTitle">Features</h2>
+            {lines.map((line) => (
+              <p className="product__text">
+                {line}
+              </p>
+            ))}
+          </section>
+          <section className="product__box">
+            <h2 className="product__secondaryTitle">In the box</h2>
+            <ul className="product__list">
+              <li><span>1x</span>Headphone Unit</li>
+              <li><span>2x</span>Replacement Earcup</li>
+              <li><span>1x</span>User Manual</li>
+              <li><span>1x</span>Audio cable</li>
+              <li><span>1x</span>Travel Bag</li>
+            </ul>
+          </section>
         </section>
         <section className="product__gallery">
           <div className="product__imageGroup">

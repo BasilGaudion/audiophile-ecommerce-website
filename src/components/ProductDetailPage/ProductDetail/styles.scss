@@ -207,6 +207,12 @@
 
 }
 
+
+// ====================
+// Responsive
+// ====================
+
+
 @media screen and (min-width: 768px) {
     .product {
 
@@ -308,5 +314,104 @@
 }
 
 @media screen and (min-width: 1440px) {
+    .product {
 
+        &__container {
+            margin-top: 79px;
+        }
+
+        &__back {
+            margin-bottom: 56px;
+        }
+
+       &__primary {
+        gap: 124.5px;
+
+        picture {
+            width: 540px;
+        }
+            
+        .product__image {
+            min-width: 540px;
+        }
+       }
+
+       &__content {
+        width: 445.5px;
+       }
+
+       &__title {
+        font-size: 2.5rem;
+        line-height: 44px;
+        letter-spacing: 1.42857px;
+       }
+
+       &__price {
+        margin-bottom: 47px;
+       }
+
+       &__featuresBox {
+        display: flex;
+        gap: 125px;
+       }
+
+       &__features {
+        width: 625px;
+       }
+
+       &__box {
+        flex-direction: column;
+        width: 350px;
+       }
+
+       &__gallery {
+        gap: 30px;
+        margin-bottom: 160px;
+       }
+
+       &__imageGroup {
+        width: 445px;
+        gap: 32px;
+       }
+
+       &__galleryImage {
+        width: 445px;
+        min-height: 280px;
+
+            .product__image {
+                min-width: 100%;
+            }
+
+            &--big {
+                width: 635px;
+                height: 592px;
+
+                img {
+                    min-width: 635px;
+                    min-height: 592px;
+                }
+            }
+        }
+
+        &__others > .product__secondaryTitle {
+                margin-bottom: 64px;
+        }
+
+        &__othersProducts {
+            gap: 30px;
+        }
+
+        &__othersProduct {
+            width: 350px;
+        }
+
+        &__othersImage {
+            min-width: 350px;
+            min-height: 318px;
+
+            .product__image {
+                min-width: 100%;
+            }
+        }
+    }
 }
