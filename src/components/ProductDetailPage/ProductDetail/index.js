@@ -46,31 +46,33 @@ const ProductDetail = () => {
     <main className="product">
       <div className="product__container container">
         <button className="product__back" type="button">Go Back</button>
-        <picture>
-          <source srcSet={headphonesMobile} media="(max-width: 767px)" />
-          <source srcSet={headphonesTablet} media="(min-width: 768px) and (max-width: 1440px)" />
-          <source srcSet={headphonesDesktop} media="(min-width: 1024px)" />
-          <img className="product__image" src={headphonesMobile} alt="product headphones" />
-        </picture>
-        <section className="product__content">
-          <h3 className="product__subtitle">New product</h3>
-          <h1 className="product__title">XX99 Mark II Headphones </h1>
-          <p className="product__text">The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.</p>
-          <div className="product__price">$ 2,999 </div>
-          <div className="product__basketDetails">
-            <form onSubmit={handleSubmit}>
-              <button onClick={decreaseQuantity} className="product__button--setvalue" type="button">-</button>
-              <input
-                type="number"
-                min="1"
-                value={quantity}
-                onChange={(event) => setQuantity(Number(event.target.value))}
-              />
-              <button onClick={increaseQuantity} className="product__button--setvalue" type="button">+</button>
-              <button type="submit" className="product__button">Add to cart</button>
-            </form>
-          </div>
-        </section>
+        <div className="product__primary">
+          <picture>
+            <source srcSet={headphonesMobile} media="(max-width: 767px)" />
+            <source srcSet={headphonesTablet} media="(min-width: 768px) and (max-width: 1440px)" />
+            <source srcSet={headphonesDesktop} media="(min-width: 1024px)" />
+            <img className="product__image" src={headphonesMobile} alt="product headphones" />
+          </picture>
+          <section className="product__content">
+            <h3 className="product__subtitle">New product</h3>
+            <h1 className="product__title">XX99 Mark II Headphones </h1>
+            <p className="product__text">The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.</p>
+            <div className="product__price">$ 2,999 </div>
+            <div className="product__basketDetails">
+              <form onSubmit={handleSubmit}>
+                <button onClick={decreaseQuantity} className="product__button--setvalue" type="button">-</button>
+                <input
+                  type="number"
+                  min="1"
+                  value={quantity}
+                  onChange={(event) => setQuantity(Number(event.target.value))}
+                />
+                <button onClick={increaseQuantity} className="product__button--setvalue" type="button">+</button>
+                <button type="submit" className="product__button">Add to cart</button>
+              </form>
+            </div>
+          </section>
+        </div>
         <section className="product__features">
           <h2 className="product__secondaryTitle">Features</h2>
           {lines.map((line) => (
@@ -90,21 +92,23 @@ const ProductDetail = () => {
           </ul>
         </section>
         <section className="product__gallery">
-          <div className="product__galleryImage">
-            <picture>
-              <source srcSet={gallery1Mobile} media="(max-width: 767px)" />
-              <source srcSet={gallery1Tablet} media="(min-width: 768px) and (max-width: 1440px)" />
-              <source srcSet={gallery1Desktop} media="(min-width: 1024px)" />
-              <img className="product__image" src={gallery1Mobile} alt="product headphones" />
-            </picture>
-          </div>
-          <div className="product__galleryImage">
-            <picture>
-              <source srcSet={gallery2Mobile} media="(max-width: 767px)" />
-              <source srcSet={gallery2Tablet} media="(min-width: 768px) and (max-width: 1440px)" />
-              <source srcSet={gallery2Desktop} media="(min-width: 1024px)" />
-              <img className="product__image" src={gallery2Mobile} alt="product headphones" />
-            </picture>
+          <div className="product__imageGroup">
+            <div className="product__galleryImage">
+              <picture>
+                <source srcSet={gallery1Mobile} media="(max-width: 767px)" />
+                <source srcSet={gallery1Tablet} media="(min-width: 768px) and (max-width: 1440px)" />
+                <source srcSet={gallery1Desktop} media="(min-width: 1024px)" />
+                <img className="product__image" src={gallery1Mobile} alt="product headphones" />
+              </picture>
+            </div>
+            <div className="product__galleryImage">
+              <picture>
+                <source srcSet={gallery2Mobile} media="(max-width: 767px)" />
+                <source srcSet={gallery2Tablet} media="(min-width: 768px) and (max-width: 1440px)" />
+                <source srcSet={gallery2Desktop} media="(min-width: 1024px)" />
+                <img className="product__image" src={gallery2Mobile} alt="product headphones" />
+              </picture>
+            </div>
           </div>
           <div className="product__galleryImage--big">
             <picture>
@@ -117,41 +121,43 @@ const ProductDetail = () => {
         </section>
         <section className="product__others">
           <h2 className="product__secondaryTitle">You may also like</h2>
-          <div className="product__othersProduct">
-            <div className="product__othersImage">
-              <picture>
-                <source srcSet={sharedHeadphonesMobile} media="(max-width: 767px)" />
-                <source srcSet={sharedHeadphonesTablet} media="(min-width: 768px) and (max-width: 1440px)" />
-                <source srcSet={sharedHeadphonesDesktop} media="(min-width: 1024px)" />
-                <img className="product__image" src={sharedHeadphonesMobile} alt="product headphones" />
-              </picture>
+          <div className="product__othersProducts">
+            <div className="product__othersProduct">
+              <div className="product__othersImage">
+                <picture>
+                  <source srcSet={sharedHeadphonesMobile} media="(max-width: 767px)" />
+                  <source srcSet={sharedHeadphonesTablet} media="(min-width: 768px) and (max-width: 1440px)" />
+                  <source srcSet={sharedHeadphonesDesktop} media="(min-width: 1024px)" />
+                  <img className="product__image" src={sharedHeadphonesMobile} alt="product headphones" />
+                </picture>
+              </div>
+              <h2 className="product__secondaryTitle">XX99 Mark i</h2>
+              <button type="submit" className="product__button">See product</button>
             </div>
-            <h2 className="product__secondaryTitle">XX99 Mark i</h2>
-            <button type="submit" className="product__button">See product</button>
-          </div>
-          <div className="product__othersProduct">
-            <div className="product__othersImage">
-              <picture>
-                <source srcSet={sharedHeadphonesMobile} media="(max-width: 767px)" />
-                <source srcSet={sharedHeadphonesTablet} media="(min-width: 768px) and (max-width: 1440px)" />
-                <source srcSet={sharedHeadphonesDesktop} media="(min-width: 1024px)" />
-                <img className="product__image" src={sharedHeadphonesMobile} alt="product headphones" />
-              </picture>
+            <div className="product__othersProduct">
+              <div className="product__othersImage">
+                <picture>
+                  <source srcSet={sharedHeadphonesMobile} media="(max-width: 767px)" />
+                  <source srcSet={sharedHeadphonesTablet} media="(min-width: 768px) and (max-width: 1440px)" />
+                  <source srcSet={sharedHeadphonesDesktop} media="(min-width: 1024px)" />
+                  <img className="product__image" src={sharedHeadphonesMobile} alt="product headphones" />
+                </picture>
+              </div>
+              <h2 className="product__secondaryTitle">XX99 Mark i</h2>
+              <button type="submit" className="product__button">See product</button>
             </div>
-            <h2 className="product__secondaryTitle">XX99 Mark i</h2>
-            <button type="submit" className="product__button">See product</button>
-          </div>
-          <div className="product__othersProduct">
-            <div className="product__othersImage">
-              <picture>
-                <source srcSet={sharedHeadphonesMobile} media="(max-width: 767px)" />
-                <source srcSet={sharedHeadphonesTablet} media="(min-width: 768px) and (max-width: 1440px)" />
-                <source srcSet={sharedHeadphonesDesktop} media="(min-width: 1024px)" />
-                <img className="product__image" src={sharedHeadphonesMobile} alt="product headphones" />
-              </picture>
+            <div className="product__othersProduct">
+              <div className="product__othersImage">
+                <picture>
+                  <source srcSet={sharedHeadphonesMobile} media="(max-width: 767px)" />
+                  <source srcSet={sharedHeadphonesTablet} media="(min-width: 768px) and (max-width: 1440px)" />
+                  <source srcSet={sharedHeadphonesDesktop} media="(min-width: 1024px)" />
+                  <img className="product__image" src={sharedHeadphonesMobile} alt="product headphones" />
+                </picture>
+              </div>
+              <h2 className="product__secondaryTitle">XX99 Mark i</h2>
+              <button type="submit" className="product__button">See product</button>
             </div>
-            <h2 className="product__secondaryTitle">XX99 Mark i</h2>
-            <button type="submit" className="product__button">See product</button>
           </div>
         </section>
       </div>

@@ -135,6 +135,12 @@
         margin-bottom: 88px;
     }
 
+    &__imageGroup {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
     &__list {
         display: flex;
         flex-direction: column;
@@ -198,5 +204,109 @@
             margin-bottom: 23px;
         }
     }
+
+}
+
+@media screen and (min-width: 768px) {
+    .product {
+
+        &__primary {
+            display: flex;
+            gap: 69px;
+            align-items: center;
+            margin-bottom: 120px;
+        }
+
+        &__subtitle {
+            margin-bottom: 17px;
+        }
+
+        &__title {
+            margin-bottom: 32px;
+        }
+
+        &__text {
+            margin-bottom: 32px;
+        }
+
+        &__image {
+            max-width: 281px;
+        }
+
+        &__content {
+           width: 339.5px; 
+           height: 450px;
+        }
+
+        &__secondaryTitle {
+            font-size: 32px;
+            letter-spacing: 1.14286px;
+            margin-bottom: 32px;
+        }
+
+        &__box  {
+            display: flex;
+            gap: 11px;
+
+            .product__secondaryTitle {
+                width: 339px;
+            }
+        }
+
+        &__gallery {
+            display: flex;
+            flex-direction: row;
+        }
+
+        &__imageGroup {
+            width: 277px;
+            
+        }
+
+        &__galleryImage {
+            width: 277px;
+
+            &--big {
+                width: 395px;
+
+                img {
+                    min-width: 395px;
+                }
+            }
+        }
+
+        &__others {
+            margin-bottom: -60px;
+
+            .product__secondaryTitle {
+                margin-bottom: 56px;
+            }
+        }
+
+        &__othersProducts {
+            display: flex;
+            gap: 11px;
+        }
+
+        &__othersProduct {
+            width: 223px;
+
+            .product__image {
+                margin-bottom: 40px;
+            }
+
+            .product__secondaryTitle {
+                font-size: 1.5rem;
+                margin-bottom: 32px;
+            }
+
+            .product__button {
+                margin:0;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
 
 }
