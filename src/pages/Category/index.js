@@ -8,6 +8,7 @@ import StoreDescription from '../../components/StoreDescription';
 import Footer from '../../components/Footer';
 import './styles.scss';
 import ProductListItem from '../../components/CategoryPage/ProductListItem';
+import Main from '../../components/Main';
 
 const Category = () => {
   const { currentCategory, setCurrentCategory, allCategories } = useContext(CategoriesContext);
@@ -45,20 +46,22 @@ const Category = () => {
   return (
     <div className="category">
       <Header />
-      <div className="category__title">
-        <h2 className="category__name">{currentCategory}</h2>
-      </div>
-      <div className="category__container">
-        {
+      <Main>
+        <div className="category__title">
+          <h2 className="category__name">{currentCategory}</h2>
+        </div>
+        <div className="category__container">
+          {
           productsByCategory.map((product) => {
             return (
               <ProductListItem info={product} key={product.id} />
             );
           })
         }
-      </div>
-      <Categories />
-      <StoreDescription />
+        </div>
+        <Categories />
+        <StoreDescription />
+      </Main>
       <Footer />
     </div>
   );

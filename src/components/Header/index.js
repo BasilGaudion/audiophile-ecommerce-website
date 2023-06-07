@@ -1,9 +1,14 @@
 import './styles.scss';
 import { Link } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { ModalContext } from '../../utils/providers/useModalProvider';
 import basket from '../../assets/icons/basket.svg';
 import logo from '../../assets/icons/audiophile-logo.svg';
+import Basket from '../Basket';
 
 const Header = () => {
+  const { isVisible, handleIsVisible } = useContext(ModalContext);
+
   return (
     <header className="header">
       <div className="header__container container">
@@ -24,8 +29,9 @@ const Header = () => {
             <li>Earphones</li>
           </ul>
         </div>
-        <img className="header__icon" src={basket} alt="" />
+        <img className="header__icon" src={basket} alt="" onClick={handleIsVisible}/>
       </div>
+      {isVisible && <Basket />}
     </header>
   );
 };

@@ -7,17 +7,20 @@ import ProductOverview2 from '../../components/HomePage/ProductOverview2';
 import ProductOverview3 from '../../components/HomePage/ProductOverview3';
 import StoreDescription from '../../components/StoreDescription';
 import Footer from '../../components/Footer';
+import Main from '../../components/Main';
 
 const Home = () => {
   return (
     <div className="home">
       <Header />
-      <HeroSection />
-      <Categories />
-      <ProductOverview1 />
-      <ProductOverview2 />
-      <ProductOverview3 />
-      <StoreDescription />
+      <Main>
+        <HeroSection />
+        <Categories />
+        <ProductOverview1 />
+        <ProductOverview2 />
+        <ProductOverview3 />
+        <StoreDescription />
+      </Main>
       <Footer />
     </div>
   );
