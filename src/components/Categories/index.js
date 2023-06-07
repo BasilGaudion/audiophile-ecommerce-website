@@ -32,19 +32,18 @@ const Categories = () => {
           allCategories.map((item) => {
             const categoryImage = categoryImages[item.type];
             return (
-              <div className="categories__section" key={item.type}>
-                <img className="categories__image" src={categoryImage} alt="headphones category" />
-                <h2 className="categories__title">{item.name}</h2>
-                <div className="categories__link">
-                  <Link to={`/${item.type}`}>
+              <Link to={`/${item.type}`} key={item.type}>
+                <div className="categories__section">
+                  <img className="categories__image" src={categoryImage} alt="headphones category" />
+                  <h2 className="categories__title">{item.name}</h2>
+                  <div className="categories__link">
                     <p className="categories__text" onClick={() => handleClick(item.type)}>
                       Shop
                       <img src={arrow} alt="" />
                     </p>
-                  </Link>
-
+                  </div>
                 </div>
-              </div>
+              </Link>
             );
           })
         }

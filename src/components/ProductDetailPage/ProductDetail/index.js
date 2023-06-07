@@ -84,7 +84,7 @@ const ProductDetail = () => {
             <img className="product__image" src={currentProductData.image.mobile} alt="product headphones" />
           </picture>
           <section className="product__content">
-            {currentProductData.new && <h3 className="productListItem__subtitle">New product</h3>}
+            {currentProductData.new && <h3 className="product__subtitle">New product</h3>}
             <h1 className="product__title">{currentProductData.name}</h1>
             <p className="product__text">{currentProductData.description}</p>
             <div className="product__price">$ {currentProductData.price}</div>

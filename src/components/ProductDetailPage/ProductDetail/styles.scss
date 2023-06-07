@@ -31,6 +31,7 @@
         text-transform: uppercase;
         color: #D87D4A;
         margin-bottom: 32px;
+        text-align: left;
     }
 
     &__title {
@@ -72,11 +73,6 @@
             input[type="number"] {
                 -moz-appearance: textfield; /* Pour Firefox */
                 appearance: textfield;
-                -webkit-inner-spin-button, 
-                -webkit-outer-spin-button { 
-                -webkit-appearance: none; /* Pour Chrome et Safari */
-                margin: 0;
-                }
                 width: calc(120px / 3 );
                 height: 48px;
                 text-align: center;
@@ -88,6 +84,12 @@
                 text-align: center;
                 letter-spacing: 1px;
                 text-transform: uppercase;
+
+                &::-webkit-inner-spin-button, 
+                &::-webkit-outer-spin-button { 
+                    -webkit-appearance: none; /* Pour Chrome et Safari */
+                    margin: 0;
+                }
             }
         }
     }

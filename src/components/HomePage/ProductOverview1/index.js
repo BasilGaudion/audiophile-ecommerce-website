@@ -1,4 +1,5 @@
 import './styles.scss';
+import { Link } from 'react-router-dom';
 import speaker from '../../../assets/images/desktop/image-speaker-zx9.png';
 import circleMobile from '../../../assets/icons/circleMobile.svg';
 import circleTablet from '../../../assets/icons/circleTablet.svg';
@@ -18,7 +19,19 @@ const ProductOverview1 = () => {
         <aside className="productoverview1__aside">
           <h2 className="productoverview1__title">Zx9 Speaker</h2>
           <p className="productoverview1__text">Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-          <button className="productoverview1__button" type="button">See product</button>
+          <Link to="/speakers/zx9-speaker">
+            <button
+              className="productoverview1__button"
+              type="button"
+              onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                });
+              }}
+            >See product
+            </button>
+          </Link>
         </aside>
       </div>
     </section>

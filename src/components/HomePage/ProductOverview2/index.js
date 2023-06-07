@@ -1,4 +1,5 @@
 import './styles.scss';
+import { Link } from 'react-router-dom';
 import speakerTableMobile from '../../../assets/images/home/mobile/image-speaker-zx7.jpg';
 import speakerTableTablet from '../../../assets/images/home/tablet/image-speaker-zx7.jpg';
 import speakerTableDesktop from '../../../assets/images/home/desktop/image-speaker-zx7.jpg';
@@ -14,7 +15,19 @@ const ProductOverview2 = () => {
           <img className="productoverview2__image" src={speakerTableMobile} alt="speaker" />
         </picture>
         <h2 className="productoverview2__title">Zx7 Speaker</h2>
-        <button className="productoverview2__button" type="button">See product</button>
+        <Link to="/speakers/zx7-speaker">
+          <button
+            className="productoverview2__button"
+            type="button"
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                left: 0,
+              });
+            }}
+          >See product
+          </button>
+        </Link>
       </div>
     </section>
   );

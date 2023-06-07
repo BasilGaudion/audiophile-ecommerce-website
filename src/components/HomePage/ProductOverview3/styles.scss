@@ -44,6 +44,12 @@
         border: 1px solid black;
         font-size: 0.85rem;
         font-weight: 700;
+        transition: all .2s ease;
+
+        &:hover,&:focus {
+            box-shadow: inset -160px 0 0 0 #000;
+            color: #FFF;
+        }
     }
 }
 

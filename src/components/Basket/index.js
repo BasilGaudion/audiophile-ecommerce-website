@@ -1,5 +1,5 @@
 import './styles.scss';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const Basket = () => {
@@ -64,6 +64,10 @@ const Basket = () => {
     return <div>Loading...</div>;
   }
 
+  const total = basketData.reduce((acc, product) => {
+    return acc + (product.price * quantity[product.id]);
+  }, 0);
+
   return (
     <section className="basket">
       <div className="basket__container container">
@@ -108,7 +112,7 @@ const Basket = () => {
           )}
         <div className="basket__priceGroup">
           <p className="basket__total">Total</p>
-          <p className="basket__totalPrice">$ 5,396</p>
+          <p className="basket__totalPrice">$ {total.toFixed(2)}</p>
         </div>
         <button className="basket__button" type="button">Checkout</button>
       </div>

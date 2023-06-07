@@ -121,6 +121,10 @@
         margin-top: 200px;
         padding: 75px 165px 48px 165px;
 
+        &::before {
+            left: 215px;
+        }
+
         &__categories {
             width: 100%;
             display: flex;
