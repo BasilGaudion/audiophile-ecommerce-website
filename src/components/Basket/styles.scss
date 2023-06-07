@@ -33,6 +33,11 @@
         line-height: 25px;
         text-decoration-line: underline;
         opacity: .5;
+        cursor: pointer;
+
+        &:hover {
+            color: #D87D4A;
+        }
     }
 
     &__content {
@@ -207,7 +212,5 @@
         &__container {
             right: 165px;
         }
-
     }
-    
 }

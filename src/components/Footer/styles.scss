@@ -41,6 +41,10 @@
         line-height: 25px;
         font-size: .8125rem;
         font-weight: 700;
+
+        &:hover {
+            color: #d87d4a;
+        }
     }
 
     &__info, &__copyright {

@@ -132,6 +132,11 @@
                     letter-spacing: 2px;
                     text-transform: uppercase;
                     color: #FFF;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: #d87d4a;
+                    }
                 }
             }
         }

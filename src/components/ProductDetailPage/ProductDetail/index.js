@@ -2,12 +2,14 @@ import './styles.scss';
 import { useState, useContext, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ProductsContext } from '../../../utils/providers/useProductsProvider';
+import { BasketContext } from '../../../utils/providers/useBasketProvider';
 
 const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const {
     currentProductData, setCurrentProductData, setCurrentProduct, getCurrentProduct,
   } = useContext(ProductsContext);
+  const { addToCart } = useContext(BasketContext);
   const [isLoading, setIsLoading] = useState(true);
   const [lines, setLines] = useState([]);
   const { product } = useParams();
@@ -38,6 +40,7 @@ const ProductDetail = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    addToCart(currentProductData, quantity);
   };
 
   const handleClick = (slug) => {

@@ -1,20 +1,33 @@
 import './styles.scss';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/icons/audiophile-logo.svg';
 import fbLogo from '../../assets/icons/facebook.svg';
 import instaLogo from '../../assets/icons/instagram.svg';
 import twitterLogo from '../../assets/icons/twitter.svg';
+import { CategoriesContext } from '../../utils/providers/useCategoriesProvider';
 
 const Footer = () => {
+  const { allCategories } = useContext(CategoriesContext);
+
   return (
     <footer className="footer">
       <div className="footer__container container">
         <section className="footer__categories">
-          <img src={logo} alt="logo" />
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
           <ul className="footer__items">
-            <li className="footer__item">Home</li>
-            <li className="footer__item">Headphones</li>
-            <li className="footer__item">Speakers</li>
-            <li className="footer__item">Earphones</li>
+            <Link to="/">
+              <li className="footer__item">Home</li>
+            </Link>
+            {allCategories.map((category) => {
+              return (
+                <Link to={`/${category.type}`} key={category.id}>
+                  <li className="footer__item">{category.name}</li>
+                </Link>
+              );
+            })}
           </ul>
         </section>
         <section className="footer__info">
