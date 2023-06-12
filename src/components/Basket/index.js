@@ -1,5 +1,5 @@
 import './styles.scss';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const Basket = () => {
@@ -114,7 +114,9 @@ const Basket = () => {
           <p className="basket__total">Total</p>
           <p className="basket__totalPrice">$ {total.toFixed(2)}</p>
         </div>
-        <button className="basket__button" type="button">Checkout</button>
+        <Link to="/checkout">
+          <button className="basket__button" type="button">Checkout</button>
+        </Link>
       </div>
     </section>
   );
