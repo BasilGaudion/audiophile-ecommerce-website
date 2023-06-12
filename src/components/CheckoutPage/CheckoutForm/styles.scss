@@ -1,0 +1,125 @@
+.checkoutForm {
+    display: flex;
+    align-items: center;
+    background-color: #FAFAFA;
+    flex-direction: column;
+
+    &__container {
+        background-color: #FFF;
+        border-radius: 8px;
+        padding: 24px;
+    }
+
+    &__back {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 25px;
+        opacity: 0.5;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 38px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 32px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    &__subtitle {
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 25px;
+        letter-spacing: 0.928571px;
+        text-transform: uppercase;
+        color: #D87D4A;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    &__label {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: -0.214286px;
+    }
+
+    &__input {
+        width: 280px;
+        height: 56px;
+        background: #FFFFFF;
+        border: 1px solid #CFCFCF;
+        border-radius: 8px;
+        padding-left: 24px;
+
+        font-family: 'Manrope';
+        font-weight: 700;
+        font-size: .875rem;
+        letter-spacing: -0.25px;
+        color: #000000;
+        opacity: 0.4;
+        margin-top: -15px;
+        transition: border 0.2s ease, opacity 0.2s ease;
+
+        &:focus {
+            border: 1px solid #D87D4A;
+            opacity: 1;
+        }
+
+        &--radio {
+            width: 20px;
+            height: 20px;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #CFCFCF;
+            border-radius: 50%;
+            outline: none;
+
+            &:checked {
+                border: 1px solid #CFCFCF;
+
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 10px;
+                    height: 10px;
+                    margin: 4px;
+                    background-color: #D87D4A;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    &__radio {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        width: 280px;
+        height: 56px;
+        background: #FFFFFF;
+        border: 1px solid rgba(207, 207, 207, .4);
+        border-radius: 8px;
+        padding-left: 24px;
+        font-weight: 700;
+        font-size: .875rem;
+        letter-spacing: -0.25px;
+        margin-top: -8px;
+        transition: border 0.2s ease, opacity 0.2s ease;
+
+        &:focus-within {
+            border: 1px solid #D87D4A;
+        }
+    }
+}

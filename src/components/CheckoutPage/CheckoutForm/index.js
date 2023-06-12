@@ -3,11 +3,11 @@ import './styles.scss';
 const CheckoutForm = () => {
   return (
     <main className="checkoutForm">
+      <p className="checkoutForm__back" type="button">Go back</p>
       <div className="checkoutForm__container container">
-        <button className="checkoutForm__back" type="button">Go back</button>
         <h1 className="checkoutForm__title">Checkout</h1>
         <form className="checkoutForm__form">
-          <section className="checkoutForm__billing">
+          <section className="checkoutForm__billing checkoutForm__section">
             <h3 className="checkoutForm__subtitle">Billing details</h3>
 
             <label htmlFor="name" className="checkoutForm__label">Name</label>
@@ -20,7 +20,7 @@ const CheckoutForm = () => {
             <input type="tel" id="phone" name="phone" placeholder="+1 202-505-0136" className="checkoutForm__input" />
 
           </section>
-          <section className="checkoutForm__shipping">
+          <section className="checkoutForm__shipping checkoutForm__section">
             <h3 className="checkoutForm__subtitle">Shipping info</h3>
 
             <label htmlFor="address" className="checkoutForm__label">Your Address</label>
@@ -36,19 +36,19 @@ const CheckoutForm = () => {
             <input type="text" id="country" name="country" placeholder="United States" className="checkoutForm__input" />
 
           </section>
-          <section className="checkoutForm__payment">
+          <section className="checkoutForm__payment checkoutForm__section">
             <h3 className="checkoutForm__subtitle">Payment Details</h3>
 
             <label className="checkoutForm__label">Payment method</label>
 
-            <div className="checkoutForm__radio-option">
-              <input type="radio" id="e-money" name="method" className="checkoutForm__input" value="e-money" checked />
-              <label htmlFor="e-money" className="checkoutForm__radio-label">e-money</label>
+            <div className="checkoutForm__radio">
+              <input type="radio" id="e-money" name="method" value="e-money" className="checkoutForm__input--radio" checked />
+              <label htmlFor="e-money" className="checkoutForm__radioLabel">e-Money</label>
             </div>
 
-            <div className="checkoutForm__radio-option">
-              <input type="radio" id="cash-on-delivery" name="method" className="checkoutForm__input" value="cash-on-delivery" />
-              <label htmlFor="cash-on-delivery" className="checkoutForm__radio-label">Cash on delivery</label>
+            <div className="checkoutForm__radio">
+              <input type="radio" id="cash-on-delivery" name="method" className="checkoutForm__input--radio" value="cash-on-delivery" />
+              <label htmlFor="cash-on-delivery" className="checkoutForm__radioLabel">Cash on delivery</label>
             </div>
 
             <label htmlFor="em-num" className="checkoutForm__label">e-money Number</label>
