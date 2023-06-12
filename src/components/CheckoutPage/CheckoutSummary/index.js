@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom';
 const CheckoutSummary = () => {
   const [basketData, setBasketData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [quantity, setQuantity] = useState({});
+  const [total, setTotal] = useState(0);
+
+  const cleanName = (str) => {
+    return str.replace(/Headphones|Earphones|Speaker|Wireless/gi, '').trim();
+  };
 
   useEffect(() => {
     const storedBasketData = JSON.parse(localStorage.getItem('basket')) || [];
@@ -13,9 +17,11 @@ const CheckoutSummary = () => {
     setLoading(false);
   }, []);
 
-  const total = basketData.reduce((acc, product) => {
-    return acc + (product.price * quantity[product.id]);
-  }, 0);
+  useEffect(() => {
+    setTotal(basketData.reduce((acc, product) => {
+      return acc + (product.price * product.quantity);
+    }, 0));
+  }, [basketData]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -42,11 +48,11 @@ const CheckoutSummary = () => {
                         <img className="summary__imageItem" src={product.image} alt="" />
                       </div>
                       <div className="summary__groupItem">
-                        <h2 className="summary__productTitle">{product.name}</h2>
+                        <h2 className="summary__productTitle">{cleanName(product.name)}</h2>
                         <p className="summary__productPrice">$ {product.price * product.quantity}</p>
                       </div>
                       <div className="summary__quantity">
-                        <p>{product.quantity}</p>
+                        <p>x{product.quantity}</p>
                       </div>
                     </li>
                   );
@@ -54,25 +60,26 @@ const CheckoutSummary = () => {
               }
             </ul>
           )}
-        <div className="summary__priceGroup">
-          <p className="summary__total">Total</p>
-          <p className="summary__totalPrice">$ {total}</p>
-          {console.log('🚀 ~ file: index.js:60 ~ CheckoutSummary ~ total:', total)}
-        </div>
-        <div className="summary__priceGroup">
-          <p className="summary__total">shipping</p>
-          <p className="summary__totalPrice">$ 50</p>
-        </div>
-        <div className="summary__priceGroup">
-          <p className="summary__total">Vat (included)</p>
-          <p className="summary__totalPrice">$ 1,079</p>
-        </div>
-        <div className="summary__priceGroup">
-          <p className="summary__total">Grand Total</p>
-          <p className="summary__totalPrice">$ 1,079</p>
+        <div className="summary__group">
+          <div className="summary__priceGroup">
+            <p className="summary__total">Total</p>
+            <p className="summary__totalPrice">$ {total.toLocaleString('en-US', { minimumFractionDigits: 0 })}</p>
+          </div>
+          <div className="summary__priceGroup">
+            <p className="summary__total">shipping</p>
+            <p className="summary__totalPrice">$ 50</p>
+          </div>
+          <div className="summary__priceGroup">
+            <p className="summary__total">Vat (included)</p>
+            <p className="summary__totalPrice">$ 1,079</p>
+          </div>
+          <div className="summary__priceGroup">
+            <p className="summary__total">Grand Total</p>
+            <p className="summary__totalPrice summary__granTotal">$ {(total + 50).toLocaleString('en-US', { minimumFractionDigits: 0 })}</p>
+          </div>
         </div>
         <Link to="/checkout">
-          <button className="summary__button" type="button">Checkout</button>
+          <button className="summary__button" type="button">Continue & Pay</button>
         </Link>
       </div>
     </section>

@@ -8,8 +8,10 @@ const Checkout = () => {
   return (
     <div className="chekout">
       <Header />
-      <CheckoutForm />
-      <CheckoutSummary />
+      <section className="checkout__desktopflex">
+        <CheckoutForm />
+        <CheckoutSummary />
+      </section>
       <Footer />
     </div>
   );

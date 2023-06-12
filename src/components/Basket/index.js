@@ -7,6 +7,10 @@ const Basket = () => {
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState({});
 
+  const cleanName = (str) => {
+    return str.replace(/Headphones|Earphones|Speaker|Wireless/gi, '').trim();
+  };
+
   useEffect(() => {
     const storedBasketData = JSON.parse(localStorage.getItem('basket')) || [];
 
@@ -91,7 +95,7 @@ const Basket = () => {
                         <img className="basket__imageItem" src={product.image} alt="" />
                       </div>
                       <div className="basket__groupItem">
-                        <h2 className="basket__productTitle">{product.name}</h2>
+                        <h2 className="basket__productTitle">{cleanName(product.name)}</h2>
                         <p className="basket__productPrice">$ {product.price * product.quantity}</p>
                       </div>
                       <div className="basket__quantity">

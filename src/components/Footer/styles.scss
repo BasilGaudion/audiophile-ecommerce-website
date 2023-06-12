@@ -1,5 +1,5 @@
 .footer {
-    margin-top: 120px;
+    // margin-top: 120px;
     display: flex;
     justify-content: center;
     background-color: #101010;
@@ -118,7 +118,7 @@
 @media screen and (min-width: 1440px) {
     .footer {
         height: 365px;
-        margin-top: 200px;
+        // margin-top: 200px;
         padding: 75px 165px 48px 165px;
 
         &::before {
