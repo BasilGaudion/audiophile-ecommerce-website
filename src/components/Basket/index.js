@@ -1,11 +1,14 @@
 import './styles.scss';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { ModalContext } from '../../utils/providers/useModalProvider';
 
 const Basket = () => {
   const [basketData, setBasketData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState({});
+  const { handleIsVisible } = useContext(ModalContext);
+
 
   const cleanName = (str) => {
     return str.replace(/Headphones|Earphones|Speaker|Wireless/gi, '').trim();
@@ -119,7 +122,7 @@ const Basket = () => {
           <p className="basket__totalPrice">$ {total.toFixed(2)}</p>
         </div>
         <Link to="/checkout">
-          <button className="basket__button" type="button">Checkout</button>
+          <button className="basket__button" type="button" onClick={handleIsVisible}>Checkout</button>
         </Link>
       </div>
     </section>

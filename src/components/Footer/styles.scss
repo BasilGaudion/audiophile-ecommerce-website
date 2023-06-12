@@ -118,11 +118,11 @@
 @media screen and (min-width: 1440px) {
     .footer {
         height: 365px;
-        // margin-top: 200px;
         padding: 75px 165px 48px 165px;
+        justify-content: center;
 
         &::before {
-            left: 215px;
+            left: 445px;
         }
 
         &__categories {
