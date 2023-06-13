@@ -132,7 +132,7 @@ const CheckoutForm = () => {
                 name="method"
                 value="e-money"
                 className="checkoutForm__input--radio"
-                checked
+                defaultChecked
               />
               <label htmlFor="e-money" className="checkoutForm__radioLabel">e-Money</label>
             </div>

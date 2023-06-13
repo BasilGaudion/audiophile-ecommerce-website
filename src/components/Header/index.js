@@ -1,6 +1,6 @@
 import './styles.scss';
 import { Link } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { ModalContext } from '../../utils/providers/useModalProvider';
 import { CategoriesContext } from '../../utils/providers/useCategoriesProvider';
 

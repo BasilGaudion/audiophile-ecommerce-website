@@ -26,8 +26,8 @@ const useCheckoutProvider = () => {
     zip: string().max(10).required('The zip code field is required'),
     city: string().max(255).required('The city field is required'),
     country: string().max(255).required('The country field is required'),
-    emNum: number().max(20).required('The e-money number field is required'),
-    emPin: number().max(10).required('The e-money PIN field is required'),
+    emNum: string().max(20).required('The e-money number field is required'),
+    emPin: string().max(10).required('The e-money PIN field is required'),
   });
 
   const updateFormData = (name, value) => {
