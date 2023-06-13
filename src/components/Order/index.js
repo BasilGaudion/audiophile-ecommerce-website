@@ -24,7 +24,7 @@ const Order = () => {
             <p className="order__otherItems">and x other item(s)</p>
           </div>
           <div className="order__total">
-            <h4 className="order__totalTitle">Gand Total</h4>
+            <h4 className="order__totalTitle">Grand Total</h4>
             <p className="order__totalPrice">$ 5,446</p>
           </div>
         </div>
