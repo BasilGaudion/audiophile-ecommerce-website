@@ -4,7 +4,7 @@
     width: 327px;
     right: calc(50% - (327px / 2));
     min-height: 280px;
-    z-index: 15;
+    z-index: 50;
     
     &__container {
         position: fixed;
@@ -12,6 +12,7 @@
         min-height: 280px;
         padding: 32px 32px;
         border-radius: 8px;
+        z-index: 50;
     }
     
     &__icon {
@@ -184,8 +185,4 @@
             justify-content: center;
         }
     }
-}
-
-@media screen and (min-width: 1440px) {
-    
 }

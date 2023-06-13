@@ -3,7 +3,6 @@ import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckoutContext } from '../../../utils/providers/useCheckoutProvider';
 import { ModalContext } from '../../../utils/providers/useModalProvider';
-import Order from '../../Order';
 
 const CheckoutSummary = () => {
   const [basketData, setBasketData] = useState([]);
@@ -11,7 +10,7 @@ const CheckoutSummary = () => {
   const [total, setTotal] = useState(0);
   const [totalVat, setTotalVat] = useState(0);
   const { validateForm, clearForm } = useContext(CheckoutContext);
-  const { isVisibleOrder, setIsVisibleOrder } = useContext(ModalContext);
+  const { setIsVisibleOrder } = useContext(ModalContext);
 
   const cleanName = (str) => {
     return str.replace(/Headphones|Earphones|Speaker|Wireless/gi, '').trim();
@@ -103,8 +102,6 @@ const CheckoutSummary = () => {
           <button className="summary__button" type="button" onClick={handleValidate}>Continue & Pay</button>
         </Link>
       </div>
-      {/* {isVisibleOrder && <Order />} */}
-      <Order />
     </section>
   );
 };
