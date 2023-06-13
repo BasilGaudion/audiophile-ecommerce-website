@@ -56,8 +56,23 @@
         gap: 24px;
         
         div {
+            position: relative;
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            max-width: 308px;
+
+            .error {
+                position: absolute;
+                right: 0;
+                height: 17px;
+                text-align: end;
+                font-weight: 500;
+                font-size: .75rem;
+                line-height: 16px;
+                text-align: right;
+                letter-spacing: -0.214286px;
+                color: #CD2C2C;
+            }
         }
     }
 
@@ -66,6 +81,15 @@
         font-size: 12px;
         line-height: 16px;
         letter-spacing: -0.214286px;
+        height: 17px;
+
+        &--error {
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: -0.214286px;
+            color: #CD2C2C;
+        }
     }
 
     &__input {
@@ -112,6 +136,22 @@
                 opacity: 1;
             }
 
+        }
+
+        &--error {
+            width: 280px;
+            height: 56px;
+            background: #FFFFFF;
+            border-radius: 8px;
+            padding-left: 24px;
+            font-family: 'Manrope';
+            font-weight: 700;
+            font-size: .875rem;
+            letter-spacing: -0.25px;
+            color: #000000;
+            margin-top: 9px;
+            border: 2px solid #CD2C2C;
+            opacity: 1;
         }
 
         &--radio {

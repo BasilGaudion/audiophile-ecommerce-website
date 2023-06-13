@@ -1,12 +1,14 @@
 import './styles.scss';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CheckoutContext } from '../../../utils/providers/useCheckoutProvider';
 
 const CheckoutSummary = () => {
   const [basketData, setBasketData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [total, setTotal] = useState(0);
   const [totalVat, setTotalVat] = useState(0);
+  const { formData, validateForm, clearForm } = useContext(CheckoutContext);
 
   const cleanName = (str) => {
     return str.replace(/Headphones|Earphones|Speaker|Wireless/gi, '').trim();
@@ -27,6 +29,17 @@ const CheckoutSummary = () => {
   useEffect(() => {
     setTotalVat(total * (20 / 100));
   }, [total]);
+
+  const handleValidate = async (event) => {
+    event.preventDefault();
+
+    const isValid = validateForm();
+
+    if (isValid) {
+      // Effectuer les actions de soumission appropriées
+      clearForm();
+    }
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -84,7 +97,7 @@ const CheckoutSummary = () => {
           </div>
         </div>
         <Link to="/checkout">
-          <button className="summary__button" type="button">Continue & Pay</button>
+          <button className="summary__button" type="button" onClick={handleValidate}>Continue & Pay</button>
         </Link>
       </div>
     </section>
