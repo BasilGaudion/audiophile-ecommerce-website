@@ -122,6 +122,7 @@
             height: 20px;
             border: 1px solid #CFCFCF;
             border-radius: 50%;
+            cursor: pointer;
 
             &:checked {
                 border: 1px solid #CFCFCF;
@@ -134,6 +135,7 @@
                     margin: 4px;
                     background-color: #D87D4A;
                     border-radius: 50%;
+                    cursor: pointer;
                 }
             }
         }

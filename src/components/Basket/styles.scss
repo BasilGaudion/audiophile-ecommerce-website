@@ -191,7 +191,11 @@
 
         &__container {
             max-width: 377px;
-            right: 32px;
+            position: absolute;
+            margin-left: 190px;
+            margin-right: auto;
+            left: 0;
+            right: 0;
         }
 
         &__button {
@@ -213,7 +217,11 @@
     .basket {
 
         &__container {
-            right: 165px;
+            position: absolute;
+            margin-left: 391px;
+            margin-right: auto;
+            left: 0;
+            right: 0;
         }
     }
 }

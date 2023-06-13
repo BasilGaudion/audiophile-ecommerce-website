@@ -6,6 +6,7 @@ const CheckoutSummary = () => {
   const [basketData, setBasketData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [total, setTotal] = useState(0);
+  const [totalVat, setTotalVat] = useState(0);
 
   const cleanName = (str) => {
     return str.replace(/Headphones|Earphones|Speaker|Wireless/gi, '').trim();
@@ -22,6 +23,10 @@ const CheckoutSummary = () => {
       return acc + (product.price * product.quantity);
     }, 0));
   }, [basketData]);
+
+  useEffect(() => {
+    setTotalVat(total * (20 / 100));
+  }, [total]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -71,7 +76,7 @@ const CheckoutSummary = () => {
           </div>
           <div className="summary__priceGroup">
             <p className="summary__total">Vat (included)</p>
-            <p className="summary__totalPrice">$ 1,079</p>
+            <p className="summary__totalPrice">$ {totalVat.toLocaleString('en-US', { minimumFractionDigits: 0 })}</p>
           </div>
           <div className="summary__priceGroup">
             <p className="summary__total">Grand Total</p>

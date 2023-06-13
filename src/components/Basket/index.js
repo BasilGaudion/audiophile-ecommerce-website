@@ -9,7 +9,6 @@ const Basket = () => {
   const [quantity, setQuantity] = useState({});
   const { handleIsVisible } = useContext(ModalContext);
 
-
   const cleanName = (str) => {
     return str.replace(/Headphones|Earphones|Speaker|Wireless/gi, '').trim();
   };
