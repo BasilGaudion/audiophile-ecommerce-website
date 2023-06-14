@@ -38,6 +38,10 @@ const CheckoutSummary = () => {
     const isValid = validateForm();
 
     if (isValid) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
       setIsVisibleOrder(true);
       clearForm();
     }

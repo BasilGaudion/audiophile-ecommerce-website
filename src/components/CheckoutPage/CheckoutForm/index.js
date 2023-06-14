@@ -1,14 +1,20 @@
 import './styles.scss';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { CheckoutContext } from '../../../utils/providers/useCheckoutProvider';
+import cashon from '../../../assets/images/checkout/icon-cash-on-delivery.svg';
 
 const CheckoutForm = () => {
+  const [isSelected, setIsSelected] = useState(true);
 
   const { formData, updateFormData } = useContext(CheckoutContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     updateFormData(name, value);
+  };
+
+  const handleChangeRender = () => {
+    setIsSelected(!isSelected);
   };
 
   return (
@@ -133,6 +139,7 @@ const CheckoutForm = () => {
                 value="e-money"
                 className="checkoutForm__input--radio"
                 defaultChecked
+                onChange={handleChangeRender}
               />
               <label htmlFor="e-money" className="checkoutForm__radioLabel">e-Money</label>
             </div>
@@ -144,38 +151,46 @@ const CheckoutForm = () => {
                 name="method"
                 className="checkoutForm__input--radio"
                 value="cash-on-delivery"
+                onChange={handleChangeRender}
               />
               <label htmlFor="cash-on-delivery" className="checkoutForm__radioLabel">Cash on delivery</label>
             </div>
           </div>
-
-          <div>
-            <label htmlFor="em-num" className={`checkoutForm__label ${formData.errors.emNum ? 'checkoutForm__label--error' : ''}`}>e-money Number</label>
-            {formData.errors.emNum && <p className="error">Wrong format</p>}
-            <input
-              type="text"
-              id="em-num"
-              name="emNum"
-              placeholder="238521993"
-              className={`checkoutForm__input ${formData.errors.emNum ? 'checkoutForm__input--error' : ''}`}
-              onChange={handleChange}
-              value={formData.emNum}
-            />
-          </div>
-
-          <div>
-            <label htmlFor="em-pin" className={`checkoutForm__label ${formData.errors.emPin ? 'checkoutForm__label--error' : ''}`}>e-money PIN</label>
-            {formData.errors.emPin && <p className="error">Wrong format</p>}
-            <input
-              type="text"
-              id="em-pin"
-              name="emPin"
-              placeholder="6891"
-              className={`checkoutForm__input ${formData.errors.emPin ? 'checkoutForm__input--error' : ''}`}
-              onChange={handleChange}
-              value={formData.emPin}
-            />
-          </div>
+          {isSelected ? (
+            <>
+              <div>
+                <label htmlFor="em-num" className={`checkoutForm__label ${formData.errors.emNum ? 'checkoutForm__label--error' : ''}`}>e-money Number</label>
+                {formData.errors.emNum && <p className="error">Wrong format</p>}
+                <input
+                  type="text"
+                  id="em-num"
+                  name="emNum"
+                  placeholder="238521993"
+                  className={`checkoutForm__input ${formData.errors.emNum ? 'checkoutForm__input--error' : ''}`}
+                  onChange={handleChange}
+                  value={formData.emNum}
+                />
+              </div>
+              <div>
+                <label htmlFor="em-pin" className={`checkoutForm__label ${formData.errors.emPin ? 'checkoutForm__label--error' : ''}`}>e-money PIN</label>
+                {formData.errors.emPin && <p className="error">Wrong format</p>}
+                <input
+                  type="text"
+                  id="em-pin"
+                  name="emPin"
+                  placeholder="6891"
+                  className={`checkoutForm__input ${formData.errors.emPin ? 'checkoutForm__input--error' : ''}`}
+                  onChange={handleChange}
+                  value={formData.emPin}
+                />
+              </div>
+            </>
+          ) : (
+            <section className="checkoutForm__cashon">
+              <img src={cashon} alt="" className="checkoutForm__cashonIcon" />
+              <p className="checkoutForm__cashonText">The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
+            </section>
+          )}
 
         </section>
       </div>
