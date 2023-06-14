@@ -6,6 +6,7 @@ const useModalProvider = () => {
 
   const [isVisible, setIsVisible] = useState(false);
   const [isVisibleOrder, setIsVisibleOrder] = useState(false);
+  const [isVisibleCategories, setIsVisibleCategories] = useState(false);
 
   useEffect(() => {
     document.body.classList.toggle('no-scroll', isVisible);
@@ -19,6 +20,10 @@ const useModalProvider = () => {
     setIsVisibleOrder(!isVisibleOrder);
   };
 
+  const handleIsVisibleCategories = () => {
+    setIsVisibleCategories(!isVisibleCategories);
+  };
+
   return {
     isVisible,
     handleIsVisible,
@@ -26,6 +31,9 @@ const useModalProvider = () => {
     isVisibleOrder,
     handleIsVisibleOrder,
     setIsVisibleOrder,
+    isVisibleCategories,
+    handleIsVisibleCategories,
+    setIsVisibleCategories,
   };
 };
 

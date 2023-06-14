@@ -9,16 +9,19 @@ const Main = ({ children }) => {
     setIsVisible,
     isVisibleOrder,
     setIsVisibleOrder,
+    isVisibleCategories,
+    setIsVisibleCategories,
   } = useContext(ModalContext);
 
   const handleBackgroundClick = () => {
     setIsVisible(false);
     setIsVisibleOrder(false);
+    setIsVisibleCategories(false);
   };
 
   return (
     <main className="main">
-      {(isVisible || isVisibleOrder) && <div className="modal-background" onClick={handleBackgroundClick} />}
+      {(isVisible || isVisibleOrder || isVisibleCategories) && <div className="modal-background" onClick={handleBackgroundClick} />}
       <main className="content">
         {children}
       </main>

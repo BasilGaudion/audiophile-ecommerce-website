@@ -7,16 +7,22 @@ import { CategoriesContext } from '../../utils/providers/useCategoriesProvider';
 import basket from '../../assets/icons/basket.svg';
 import logo from '../../assets/icons/audiophile-logo.svg';
 import Basket from '../Basket';
+import CategoriesModalHeader from '../CategoriesModalHeader';
 
 const Header = () => {
-  const { isVisible, handleIsVisible } = useContext(ModalContext);
+  const {
+    isVisible,
+    handleIsVisible,
+    isVisibleCategories,
+    handleIsVisibleCategories,
+  } = useContext(ModalContext);
   const { allCategories } = useContext(CategoriesContext);
 
   return (
     <header className="header">
       <div className="header__container container">
         <div className="header__icon">
-          <input type="checkbox" id="menu-brg" />
+          <input type="checkbox" id="menu-brg" onClick={handleIsVisibleCategories} />
           <label htmlFor="menu-brg">
             <span> </span>
           </label>
@@ -41,6 +47,7 @@ const Header = () => {
         <img className="header__icon" src={basket} alt="" onClick={handleIsVisible} />
       </div>
       {isVisible && <Basket />}
+      {isVisibleCategories && <CategoriesModalHeader />}
     </header>
   );
 };
