@@ -1,5 +1,6 @@
 import './styles.scss';
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CheckoutContext } from '../../../utils/providers/useCheckoutProvider';
 import cashon from '../../../assets/images/checkout/icon-cash-on-delivery.svg';
 
@@ -7,6 +8,8 @@ const CheckoutForm = () => {
   const [isSelected, setIsSelected] = useState(true);
 
   const { formData, updateFormData } = useContext(CheckoutContext);
+
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -19,7 +22,7 @@ const CheckoutForm = () => {
 
   return (
     <main className="checkoutForm">
-      <p className="checkoutForm__back" type="button">Go back</p>
+      <p className="checkoutForm__back" onClick={() => navigate(-1)}>Go back</p>
       <div className="checkoutForm__container container">
         <h1 className="checkoutForm__title">Checkout</h1>
         <section className="checkoutForm__billing checkoutForm__section">
