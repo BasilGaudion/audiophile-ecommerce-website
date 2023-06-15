@@ -56,6 +56,11 @@
         border: none;
         font-size: 0.85rem;
         font-weight: 700;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: #FBAF85;
+        }
     }
 }
 

@@ -105,9 +105,23 @@
         font-size: .875rem;
         letter-spacing: -0.25px;
         color: #000000;
-        opacity: 0.4;
         margin-top: 9px;
         transition: border 0.2s ease, opacity 0.2s ease;
+
+        // Chrome / Edge / Safari
+        &::-webkit-input-placeholder {
+            opacity: .4;
+        }
+
+        // IE 10+
+        &::-ms-input-placeholder {
+            opacity: .4;
+        }
+
+        // Firefox 
+        &::-moz-placeholder {
+            opacity: .4;
+        }
 
         &:focus {
             border: 1px solid #D87D4A;
