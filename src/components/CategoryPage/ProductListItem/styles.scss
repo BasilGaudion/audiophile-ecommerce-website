@@ -1,0 +1,119 @@
+.productListItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 64px;
+    margin-bottom: 120px;
+
+    &__image {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        margin-top: 32px;
+    }
+
+    &__subtitle {
+        font-weight: 400;
+        font-size: .875rem;
+        line-height: 19px;
+        text-align: center;
+        letter-spacing: 10px;
+        text-transform: uppercase;
+        color: #D87D4A;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 1.75rem;
+        line-height: 38px;
+        text-align: center;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    &__text {
+        font-weight: 500;
+        font-size: .9375rem;
+        line-height: 25px;
+        text-align: center;
+        opacity: .5;
+    }
+
+    &__button {
+        width: 160px;
+        font-family: 'Manrope';
+        height: 48px;
+        background-color: #D87D4A;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #FFF;
+        border: none;
+        font-size: 0.85rem;
+        font-weight: 700;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: #FBAF85;
+        }
+    }
+}
+
+// =============================
+// Responsive
+// =============================
+
+@media screen and (min-width: 768px) {
+    .productListItem {
+        
+        &__title {
+            font-size: 2.5rem;
+            line-height: 44px;
+            width: 472px;
+        }
+
+        &__text {
+            width: 572px;
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .productListItem {
+        
+        &__container {
+           display: flex;
+           align-items: center;
+           gap: 125px;
+        }
+
+        &__content {
+            justify-content: center;
+            align-items: flex-start;
+            width: 445px;
+            gap: 0;
+        }
+
+        &__image {
+            width: 540px;
+        }
+
+        &__title {
+            letter-spacing: 1.42857px;
+            margin-bottom: 32px;
+            margin-top: 16px;
+            text-align: left;
+        }
+
+        &__text {
+            margin-bottom: 40px;
+            text-align: left;
+            width: 445px;
+        }
+    }
+}

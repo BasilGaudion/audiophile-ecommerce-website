@@ -1,0 +1,99 @@
+.productoverview3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-top: 24px;
+// 
+    &__container {
+        height: 200px;
+        background-color: #f1f1f1;
+        border-radius: 8px;
+
+        &:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 41px 25.5px;
+            gap: 32px;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    &__title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        line-height: 38.25px;
+    }
+
+    &__button {
+        width: 160px;
+        font-family: 'Manrope';
+        font-weight: 700;
+        height: 48px;
+        background-color: rgba(0,0,0,0);
+        color: #000;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border: 1px solid black;
+        font-size: 0.85rem;
+        font-weight: 700;
+        transition: all .2s ease;
+
+        &:hover,&:focus {
+            box-shadow: inset -160px 0 0 0 #000;
+            color: #FFF;
+        }
+    }
+}
+
+// =============================
+// Responsive
+// =============================
+
+@media screen and (min-width: 768px) {
+    .productoverview3 {
+        flex-direction: row;
+        justify-content: center;
+        gap: 11px;
+
+        &__container, &__image {
+            max-width: 339px;
+            height: 320px;
+        }
+
+        &__container:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 32px;
+            padding-left: 41px;
+        }
+    }
+}
+   
+@media screen and (min-width: 1440px) {
+       .productoverview3 {
+        margin-top: 48px;
+        gap: 30px;
+
+        &__container {
+            min-width: 540px;
+        }
+
+        &__image {
+            min-width: 100%;
+        }
+
+        &__container:nth-child(2) {
+            padding-left: 95px;
+        }
+       }
+}

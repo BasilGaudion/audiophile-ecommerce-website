@@ -1,0 +1,67 @@
+.categoriesModalHeader {
+    display: flex;
+    justify-content: center;
+    margin-top: 92px;
+    padding-top: 84px;
+    position: absolute;
+    top: 0;
+    background-color: #FFF;
+    width: 100vw;
+    z-index: 11;
+    padding-bottom: 35px;
+    border-radius: 0 0 8px 8px;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 68px;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 17px;
+        align-items: center;
+        width: 327px;
+        height: 165px;
+        background-color: #F1F1F1;
+        border-radius: 8px;
+        position: relative;
+        padding: 22px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+
+        &:hover {
+            background-color: rgba(216, 125, 74, 0.8);
+            color: #FFF;
+
+            img {
+                top: -25px;
+            }
+        }
+    }
+
+    &__image {
+        overflow: visible;
+        position: absolute;
+        top: -50px;
+        transition: top 0.3s ease;
+    }
+
+    &__title {
+        font-size: .9375rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.07px
+    }
+
+    &__text {
+        font-size: .8125rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: flex;
+        gap: 13px;
+    }
+}

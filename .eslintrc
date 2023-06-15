@@ -24,6 +24,7 @@
     "jsx-a11y/mouse-events-have-key-events": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/label-has-associated-control": "off",
     "react/jsx-filename-extension": "off",
     "react/forbid-prop-types": "off",
     "react/no-access-state-in-setstate": "warn",
@@ -32,13 +33,15 @@
     "react/no-unescaped-entities": "off",
     "react/jsx-props-no-spreading": "off",
     "react/state-in-constructor": "off",
+    "react/no-array-index-key": "off",
     "func-names": "off",
     "object-shorthand": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "max-len": "off",
     "react/function-component-definition": "off",
-    "arrow-body-style":"off"
+    "arrow-body-style":"off",
+    "padded-blocks":"off"
   },
   "settings": {
     "import/resolver": {

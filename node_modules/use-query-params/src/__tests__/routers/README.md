@@ -1,1 +1,0 @@
-The tests in the shared.tsx are re-used in the adapter packages (e.g. for React Router 5 and 6). This was the only way I could think of to get it working given mixed dependency versions and annoyances with packaging/importing different versions of react and history.

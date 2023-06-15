@@ -1,0 +1,227 @@
+.basket {
+    position: absolute;
+    bottom: calc(-27px + -280px);
+    width: 327px;
+    right: calc(50% - (327px / 2));
+    height: 280px;
+    z-index: 15;
+    
+    &__container {
+        position: fixed;
+        background-color: #FFF;
+        min-height: 280px;
+        padding: 32px 29px;
+        border-radius: 8px;
+    }
+
+    &__header {
+        display: flex;
+        margin-bottom: 32px;
+        justify-content: space-between;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 1.125rem;
+        line-height: 25px;
+        letter-spacing: 1.28571px;
+        text-transform: uppercase;
+    }
+
+    &__remove {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 25px;
+        text-decoration-line: underline;
+        opacity: .5;
+        cursor: pointer;
+
+        &:hover {
+            color: #D87D4A;
+        }
+    }
+
+    &__content {
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    &__empty {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 25px;
+        opacity: .7;
+    }
+
+    &__list {
+        margin-bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    &__item {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+    }
+
+    &__image {
+        width: 64px;
+    }
+
+    &__imageItem {
+        width: 64px;
+        border-radius: 10px;
+    }
+
+    &__productTitle {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 25px;
+        text-transform: uppercase;
+        width: 75px;
+    }
+
+    &__productPrice {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 25px;
+        opacity: .5;
+    }
+
+    &__groupItem {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__quantity {
+        margin-left: 3px;
+    }
+
+    &__quantity {
+        width: 96px;
+        height: 32px;
+        display: flex;
+
+        input[type="number"] {
+            -moz-appearance: textfield; /* Pour Firefox */
+            appearance: textfield;
+            width: calc(96px / 3 );
+            height: 32px;
+            text-align: center;
+            border: none;
+            background-color: #F1F1F1;
+            font-family: 'Manrope';
+            font-weight: 700;
+            font-size: .8125rem;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            &::-webkit-inner-spin-button, 
+            &::-webkit-outer-spin-button { 
+                -webkit-appearance: none; /* Pour Chrome et Safari */
+                margin: 0;
+            }
+        }
+
+    }
+
+    &__button {
+        width: 271px;
+        font-family: 'Manrope';
+        height: 48px;
+        background-color: #D87D4A;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #FFF;
+        border: none;
+        font-size: .8125rem;
+        line-height: 18px;
+        font-weight: 700;
+
+        &--setvalue {
+            height: 32px;
+            width: calc(96px / 3 );
+            background-color: transparent;
+            border: none;
+            background-color: #F1F1F1;
+            font-family: 'Manrope';
+            font-weight: 700;
+            font-size: .8125rem;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 18px;
+            color: rgba(0, 0, 0, 0.25);
+        }
+    }
+
+    &__priceGroup {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 24px;
+    }
+
+    &__total {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 25px;
+        opacity: .5;
+        text-transform: uppercase;
+    }
+
+    &__totalPrice {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 25px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+// =============================
+// Responsive
+// =============================
+
+@media screen and (min-width: 768px) {
+    .basket {
+        width: 377px;
+
+        &__container {
+            max-width: 377px;
+            position: absolute;
+            margin-left: 190px;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+        }
+
+        &__button {
+            width: 318px;
+        }
+
+        &__item {
+            justify-content: center;
+        }
+
+        &__productTitle {
+            margin-right: 61px;
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+
+    .basket {
+
+        &__container {
+            position: absolute;
+            margin-left: 391px;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+        }
+    }
+}

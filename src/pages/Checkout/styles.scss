@@ -1,0 +1,28 @@
+.checkout {
+
+    &__desktopflex {
+        display: flex;
+        flex-direction: column;
+        background-color: #fafafa;
+    }
+}
+// =============================
+// Responsive
+// =============================
+
+@media screen and (min-width: 768px) {
+    
+}
+
+@media screen and (min-width: 1440px) {
+    .checkout {
+
+        &__desktopflex {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 30px;
+            padding-bottom: 141px;
+        }
+    }
+}

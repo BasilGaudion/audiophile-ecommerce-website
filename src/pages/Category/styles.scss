@@ -1,0 +1,41 @@
+.category {
+
+    &__title {
+        background-color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 103px;
+    }
+
+    &__name {
+        text-transform: uppercase;
+        color: #FFF;
+        font-weight: 700;
+        font-size: 1.75rem;
+        line-height: 38px;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+// =============================
+// Responsive
+// =============================
+
+@media screen and (min-width: 1440px) {
+    .category {
+        .productListItem {
+            &:nth-child(2n) {
+                .productListItem__container {
+                    flex-direction: row-reverse;
+                }
+            }
+        }
+    }
+}

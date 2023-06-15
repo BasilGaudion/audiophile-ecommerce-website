@@ -1,0 +1,311 @@
+.checkoutForm {
+    display: flex;
+    align-items: center;
+    background-color: #FAFAFA;
+    flex-direction: column;
+
+    &__back {
+        width: 78%;
+        margin-top: 48px;
+        margin-bottom: 24px;
+    }
+
+    &__container {
+        background-color: #FFF;
+        border-radius: 8px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    &__back {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 25px;
+        opacity: 0.5;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 38px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 32px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    &__subtitle {
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 25px;
+        letter-spacing: 0.928571px;
+        text-transform: uppercase;
+        color: #D87D4A;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        
+        div {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 308px;
+
+            .error {
+                position: absolute;
+                right: 0;
+                height: 17px;
+                text-align: end;
+                font-weight: 500;
+                font-size: .75rem;
+                line-height: 16px;
+                text-align: right;
+                letter-spacing: -0.214286px;
+                color: #CD2C2C;
+            }
+        }
+    }
+
+    &__label {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: -0.214286px;
+        height: 17px;
+
+        &--error {
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: -0.214286px;
+            color: #CD2C2C;
+        }
+    }
+
+    &__input {
+        width: 280px;
+        height: 56px;
+        background: #FFFFFF;
+        border: 1px solid #CFCFCF;
+        border-radius: 8px;
+        padding-left: 24px;
+
+        font-family: 'Manrope';
+        font-weight: 700;
+        font-size: .875rem;
+        letter-spacing: -0.25px;
+        color: #000000;
+        margin-top: 9px;
+        transition: border 0.2s ease, opacity 0.2s ease;
+
+        // Chrome / Edge / Safari
+        &::-webkit-input-placeholder {
+            opacity: .4;
+        }
+
+        // IE 10+
+        &::-ms-input-placeholder {
+            opacity: .4;
+        }
+
+        // Firefox 
+        &::-moz-placeholder {
+            opacity: .4;
+        }
+
+        &:focus {
+            border: 1px solid #D87D4A;
+            opacity: 1;
+        }
+
+        &--large {
+            width: 280px;
+            height: 56px;
+            background: #FFFFFF;
+            border: 1px solid #CFCFCF;
+            border-radius: 8px;
+            padding-left: 24px;
+    
+            font-family: 'Manrope';
+            font-weight: 700;
+            font-size: .875rem;
+            letter-spacing: -0.25px;
+            color: #000000;
+            opacity: 0.4;
+            margin-top: 9px;
+            transition: border 0.2s ease, opacity 0.2s ease;
+    
+            &:focus {
+                border: 1px solid #D87D4A;
+                opacity: 1;
+            }
+
+        }
+
+        &--error {
+            width: 280px;
+            height: 56px;
+            background: #FFFFFF;
+            border-radius: 8px;
+            padding-left: 24px;
+            font-family: 'Manrope';
+            font-weight: 700;
+            font-size: .875rem;
+            letter-spacing: -0.25px;
+            color: #000000;
+            margin-top: 9px;
+            border: 2px solid #CD2C2C;
+            opacity: 1;
+        }
+
+        &--radio {
+            width: 20px;
+            height: 20px;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #CFCFCF;
+            border-radius: 50%;
+            cursor: pointer;
+
+            &:checked {
+                border: 1px solid #CFCFCF;
+
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 10px;
+                    height: 10px;
+                    margin: 4px;
+                    background-color: #D87D4A;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &__radio {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        width: 280px;
+        height: 56px;
+        background: #FFFFFF;
+        border: 1px solid rgba(207, 207, 207, .4);
+        border-radius: 8px;
+        padding-left: 24px;
+        font-weight: 700;
+        font-size: .875rem;
+        letter-spacing: -0.25px;
+        transition: border 0.2s ease, opacity 0.2s ease;
+
+        &:focus-within {
+            border: 1px solid #D87D4A;
+        }
+    }
+
+    &__radioGroup {
+        margin-top: -8px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    #radio {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__cashon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        margin-top: 30px;
+    }
+
+    &__cashonText {
+        font-weight: 500;
+        font-size: .9375rem;
+        line-height: 20px;
+        opacity: .5;
+    }
+}
+
+
+
+// =============================
+// Responsive
+// =============================
+
+@media screen and (min-width: 768px) {
+    .checkoutForm {
+
+        &__container {
+            padding: 28px;
+        }
+
+        &__subtitle {
+            width: 600px;
+        }
+
+        &__input {
+            width: 308px;
+
+            &--large {
+                width: 633px;
+            }
+        }
+
+        &__section {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            gap: 16px;
+
+            &>label {
+                width: 308px;
+            }
+        }
+
+        &__radio {
+            width: 308px;
+        }
+
+        &__cashon {
+        display: flex;
+        flex-direction: row;
+        width: 634px;
+        align-items: center;
+        gap: 32px;
+    }
+
+    &__cashonText {
+        font-weight: 500;
+        font-size: .9375rem;
+        line-height: 20px;
+        opacity: .5;
+    }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .checkoutForm {
+
+        &__container {
+            max-width: 730px;
+            
+        }
+    }
+}
