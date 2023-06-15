@@ -68,7 +68,7 @@ This project is MIT licensed
 
 ## Contact 💌
 
-GitHub : @BasilGaudion
+GitHub : [Basil Gaudion](https://github.com/BasilGaudion)
 
 Project Link: https://github.com/BasilGaudion/audiophile-ecommerce-website
 
