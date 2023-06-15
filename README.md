@@ -72,6 +72,8 @@ GitHub : [Basil Gaudion](https://github.com/BasilGaudion)
 
 Project Link: https://github.com/BasilGaudion/audiophile-ecommerce-website
 
+Online project : https://audiophile-ecommerce-website-rose.vercel.app/
+
 Feel free to contact me for any questions or feedback!
 
 Happy coding! 🚀
