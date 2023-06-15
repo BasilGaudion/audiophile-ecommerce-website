@@ -9,7 +9,7 @@ const CheckoutSummary = () => {
   const [loading, setLoading] = useState(true);
   const [total, setTotal] = useState(0);
   const [totalVat, setTotalVat] = useState(0);
-  const { validateForm, clearForm } = useContext(CheckoutContext);
+  const { validateForm, clearForm, setOrder } = useContext(CheckoutContext);
   const { setIsVisibleOrder } = useContext(ModalContext);
 
   const cleanName = (str) => {
@@ -42,6 +42,7 @@ const CheckoutSummary = () => {
         top: 0,
         behavior: 'smooth',
       });
+      setOrder(basketData);
       setIsVisibleOrder(true);
       clearForm();
     }

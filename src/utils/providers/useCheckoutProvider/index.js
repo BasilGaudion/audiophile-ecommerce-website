@@ -18,6 +18,8 @@ const useCheckoutProvider = () => {
     errors: {},
   });
 
+  const [order, setOrder] = useState({});
+
   const userSchema = object().shape({
     name: string().max(255).required('The name field is required'),
     email: string().email('Invalid email format').max(255).required('The email field is required'),
@@ -79,6 +81,8 @@ const useCheckoutProvider = () => {
     updateFormData,
     validateForm,
     clearForm,
+    order,
+    setOrder,
   };
 };
 
