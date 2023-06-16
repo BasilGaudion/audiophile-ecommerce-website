@@ -1,13 +1,13 @@
 .order {
     position: absolute;
-    top: 134px;
+    top: 50px;
     width: 327px;
     right: calc(50% - (327px / 2));
     min-height: 280px;
     z-index: 50;
     
     &__container {
-        position: fixed;
+        // position: fixed;
         background-color: #FFF;
         min-height: 280px;
         padding: 32px 32px;

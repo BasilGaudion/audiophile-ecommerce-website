@@ -2,12 +2,14 @@ import './styles.scss';
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import { ModalContext } from '../../utils/providers/useModalProvider';
+import { BasketContext } from '../../utils/providers/useBasketProvider';
 
 const Basket = () => {
   const [basketData, setBasketData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState({});
   const { handleIsVisible } = useContext(ModalContext);
+  const { setHasProduct } = useContext(BasketContext);
 
   const cleanName = (str) => {
     return str.replace(/Headphones|Earphones|Speaker|Wireless/gi, '').trim();
@@ -50,11 +52,18 @@ const Basket = () => {
       const updatedBasketData = basketData.filter((product) => product.id !== productId);
       localStorage.setItem('basket', JSON.stringify(updatedBasketData));
       setBasketData(updatedBasketData);
+
+      const basketExist = JSON.parse(localStorage.getItem('basket'));
+
+      if (!basketExist || basketExist.length === 0) {
+        setHasProduct(false);
+      }
     }
   };
 
   const handleDeleteBasket = () => {
     localStorage.removeItem('basket');
+    setHasProduct(false);
     setBasketData([]);
   };
 
@@ -107,6 +116,7 @@ const Basket = () => {
                           min="1"
                           value={quantity[product.id] || ''}
                           onChange={(event) => updateQuantityInLocalStorage(product.id, Number(event.target.value))}
+                          className="basket__inputQuantity"
                         />
                         <button onClick={() => increaseQuantity(product.id)} className="basket__button--setvalue" type="button">+</button>
                       </div>

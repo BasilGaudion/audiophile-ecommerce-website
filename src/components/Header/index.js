@@ -1,8 +1,9 @@
 import './styles.scss';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { ModalContext } from '../../utils/providers/useModalProvider';
 import { CategoriesContext } from '../../utils/providers/useCategoriesProvider';
+import { BasketContext } from '../../utils/providers/useBasketProvider';
 
 import basket from '../../assets/icons/basket.svg';
 import logo from '../../assets/icons/audiophile-logo.svg';
@@ -17,6 +18,12 @@ const Header = () => {
     handleIsVisibleCategories,
   } = useContext(ModalContext);
   const { allCategories } = useContext(CategoriesContext);
+
+  const { hasProduct, seeIfProductInBasket } = useContext(BasketContext);
+
+  useEffect(() => {
+    seeIfProductInBasket();
+  }, []);
 
   return (
     <header className="header">
@@ -45,6 +52,7 @@ const Header = () => {
           </ul>
         </div>
         <img className="header__icon" src={basket} alt="" onClick={handleIsVisible} />
+        {hasProduct && <span className="header__span" />}
       </div>
       {isVisible && <Basket />}
       {isVisibleCategories && <CategoriesModalHeader />}

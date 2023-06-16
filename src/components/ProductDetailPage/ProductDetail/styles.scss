@@ -15,6 +15,7 @@
         line-height: 25px;
         opacity: .5;
         margin-bottom: 16px;
+        color: #000;
     }
 
     &__image {
@@ -92,6 +93,10 @@
                 }
             }
         }
+    }
+
+    &__inputQuantity {
+        border-radius: 0;
     }
 
     &__button {

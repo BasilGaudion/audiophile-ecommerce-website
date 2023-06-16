@@ -1,8 +1,10 @@
 import './styles.scss';
 import { useState, useContext, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import { ProductsContext } from '../../../utils/providers/useProductsProvider';
 import { BasketContext } from '../../../utils/providers/useBasketProvider';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
@@ -41,6 +43,11 @@ const ProductDetail = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     addToCart(currentProductData, quantity);
+    toast.success('Product added to cart !', {
+      autoClose: 2000,
+      pauseOnHover: false,
+      theme: 'colored',
+    });
   };
 
   const handleClick = (slug) => {
@@ -49,6 +56,7 @@ const ProductDetail = () => {
     window.scrollTo({
       top: 0,
       left: 0,
+      limit: 1,
       behavior: 'smooth',
     });
   };
@@ -61,6 +69,7 @@ const ProductDetail = () => {
 
   return (
     <main className="product">
+      <ToastContainer />
       <div className="product__container container">
         <button
           className="product__back"
@@ -96,6 +105,7 @@ const ProductDetail = () => {
                   min="1"
                   value={quantity}
                   onChange={(event) => setQuantity(Number(event.target.value))}
+                  className="product__inputQuantity"
                 />
                 <button onClick={increaseQuantity} className="product__button--setvalue" type="button">+</button>
                 <button type="submit" className="product__button">Add to cart</button>
